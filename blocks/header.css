@@ -1,5 +1,25 @@
-.header {}
+.header {
+    max-width: 880px;
+    margin: 0 auto;
+}
+
+.header__logo {
+    position: absolute;
+    left: 200px;
+    top: 45px;
+    Width: 173px;
+}
+
+.header__sep {
+    margin-top: 119px;
+    border-bottom: #545454 solid 1px;
+    width: 100%;
+    opacity: 1.5;
+}
 
 @media screen and (max-width: 320px) {
-    .header {}
+    .header__logo {
+        left: 80px;
+        top: 45px;
+    }
 }
