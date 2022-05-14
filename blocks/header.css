@@ -1,0 +1,5 @@
+.header {}
+
+@media screen and (max-width: 320px) {
+    .header {}
+}
