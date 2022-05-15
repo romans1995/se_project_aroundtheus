@@ -1,0 +1,15 @@
+.elements {
+    color: #fff;
+    width: 880px;
+}
+
+.elements__ul {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 21px;
+    column-gap: 17px;
+}
+
+.elements__ul>* {
+    flex: 0 0 30%;
+}
