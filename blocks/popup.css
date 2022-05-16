@@ -1,16 +1,94 @@
-.popup{
- width: 430px;
-height: 330px;
-color: black;
-background: #FFFFFF;
-box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
-border-radius: 10px;
-margin: 0 auto;
+.popup {
+    width: 430px;
+    height: 330px;
+    color: black;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 25px rgb(0 0 0 / 15%);
+    border-radius: 10px;
+    margin: 0 auto;
+    position: fixed;
+    top: 195px;
+    left: 425px;
+    font-family: 'Inter';
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    display: none;
 }
-.popup__title{
- font-family: 'Inter';
-font-style: normal;
-font-weight: 900;
-font-size: 24px;
-line-height: 29px;
+
+.popup__active {
+    display: block;
+}
+
+.popup__title {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    margin-bottom: 54px;
+    margin-left: 36px;
+}
+
+.popup__close-btn {
+    background-image: url(../images/icons/close_icon.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px;
+    color: black;
+    width: 100px;
+    height: 100px;
+    z-index: 2;
+    position: fixed;
+}
+
+.popup__inputs {
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    width: 100%;
+    text-align: center;
+}
+
+.popup__button {
+    background: #000000;
+    color: #fff;
+    border-radius: 2px;
+    height: 50.15px;
+    width: 80%;
+    margin-top: 48px;
+    margin-left: 36px;
+}
+
+.popup__name {
+    width: 80%;
+    margin-bottom: 30px;
+    border: 0 none #ccc;
+    border-bottom: 2px solid #ccc;
+    border-radius: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.popup__description {
+    width: 80%;
+    margin-bottom: 30px;
+    border: 0 none #ccc;
+    border-bottom: 2px solid #ccc;
+    border-radius: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.popup__close-btn {
+    position: absolute;
+    left: 92.15%;
+    bottom: 306px;
+    background-size: 40px;
 }

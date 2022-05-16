@@ -78,3 +78,20 @@ const addAllelements = (elem, arr) => {
 };
 
 elementsList.forEach((elem) => addAllelements(elem, elementList));
+
+let nameInput = document.getElementsByClassName(
+    "popup__name"
+)[0];
+let aboutInput = document.getElementsByClassName(
+    "popup__description"
+)[0];
+
+const EditModeName = document.querySelector(".profile__edit");
+EditModeName.addEventListener("click", () => {
+    let popup = document.getElementById("popup");
+    popup.classList.toggle("popup__active");
+    let profileName = document.querySelector(".profile__description-name");
+    let profileAbout = document.querySelector(".profile__description-prof");
+    nameInput.value = profileName.textContent;
+    aboutInput.value = profileAbout.textContent;
+});
