@@ -64,6 +64,7 @@
     }
     .profile__description-name {
         font-size: 22px;
+        height: none;
     }
     .profile__img {
         margin: 0 auto;
@@ -75,6 +76,6 @@
     .profile__edit {
         background-size: 7px 7px;
         position: absolute;
-        right: 50px;
+        right: 10vw;
     }
 }
