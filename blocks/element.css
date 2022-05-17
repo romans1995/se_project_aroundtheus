@@ -33,6 +33,12 @@
         margin-top: 24px;
     }
     
+    .element__likeBtn:hover {
+        cursor: pointer;
+        opacity: 0.5;
+        transition: 0.3s;
+    }
+    
     .element__title {
         text-overflow: ellipsis;
         flex-grow: 1;
@@ -47,22 +53,19 @@
     .element__likeBtnn_active {
         background-image: url(../images/icons/heart_icon-filled.svg);
     }
+    
     @media screen and (max-width: 904px) {
-        .element{
+        .element {
             width: 45%;
-        
         }
-        
     }
-
+    
     @media screen and (max-width: 565px) {
-.element__image{
-    width: none;
-    height: none;
-}
-.element{
-    width: 77vw;
-
-}
-
+        .element__image {
+            width: none;
+            height: none;
+        }
+        .element {
+            width: 77vw;
+        }
     }

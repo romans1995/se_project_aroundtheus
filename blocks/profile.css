@@ -17,6 +17,12 @@
     margin-top: 49px;
 }
 
+.profile__edit:hover {
+    cursor: pointer;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
 .profile__description-name {
     font-family: 'Inter';
     font-style: normal;
@@ -49,6 +55,11 @@
     height: 50px;
     margin-top: 50px;
     margin-left: 165px;
+}
+
+.profile__newSong:hover {
+    opacity: 0.6;
+    transition: 0.3s;
 }
 
 .profile__img {

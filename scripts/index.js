@@ -86,12 +86,28 @@ let aboutInput = document.getElementsByClassName(
     "popup__description"
 )[0];
 
+const profilInput = document.querySelector(".popup__submit_button");
 const EditModeName = document.querySelector(".profile__edit");
+
+let profileName = document.querySelector(".profile__description-name");
+let profileAbout = document.querySelector(".profile__description-prof");
+
 EditModeName.addEventListener("click", () => {
     let popup = document.getElementById("popup");
     popup.classList.toggle("popup__active");
-    let profileName = document.querySelector(".profile__description-name");
-    let profileAbout = document.querySelector(".profile__description-prof");
     nameInput.value = profileName.textContent;
     aboutInput.value = profileAbout.textContent;
 });
+const handleProfileEditSubmit = () => {
+
+    popup.classList.remove("popup__active");
+    profileName.textContent = nameInput.value;
+    profileAbout.textContent = aboutInput.value;
+};
+
+profilInput.addEventListener("click", handleProfileEditSubmit);
+
+const popupCloseBtn = document.querySelector(".popup__close-btn");
+popupCloseBtn.addEventListener("click", () => {
+    popup.classList.remove("popup__active");
+})
