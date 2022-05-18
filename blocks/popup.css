@@ -9,6 +9,7 @@
             position: fixed;
             top: 195px;
             left: 425px;
+            right: 425px;
             font-family: 'Inter';
             flex-direction: column;
             flex-wrap: nowrap;
@@ -31,7 +32,7 @@
         }
         
         .popup__close-btn {
-            background-image: url(../images/icons/close_icon.svg);
+            background-image: url(../images/icons/closeIcon.svg);
             background-repeat: no-repeat;
             background-position: center;
             background-size: 20px;
