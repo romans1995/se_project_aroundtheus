@@ -51,7 +51,7 @@
     }
     
     .element__likeBtnn_active {
-        background-image: url(../images/icons/heart_icon-filled.svg);
+        background-image: url(../images/icons/heartIconFilled.svg);
     }
     
     @media screen and (max-width: 904px) {

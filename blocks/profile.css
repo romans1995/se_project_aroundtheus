@@ -6,7 +6,7 @@
 }
 
 .profile__edit {
-    background: url(../images/icons/edit_icon.svg);
+    background: url(../images/icons/editIcon.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 10px;
@@ -45,7 +45,7 @@
 }
 
 .profile__newSong {
-    background: url(../images/icons/plus_icon.svg);
+    background: url(../images/icons/plusIcon.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 20px;

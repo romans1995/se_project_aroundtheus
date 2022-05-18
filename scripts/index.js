@@ -74,7 +74,7 @@ const addClass = (component, add) => {
 };
 
 const addAllelements = (elem, arr) => {
-    arr.prepend(addelement(elem));
+    arr.append(addelement(elem));
 };
 
 elementsList.forEach((elem) => addAllelements(elem, elementList));
@@ -104,8 +104,6 @@ const handleProfileEditSubmit = () => {
     profileName.textContent = nameInput.value;
     profileAbout.textContent = aboutInput.value;
 };
-
-profilInput.addEventListener("click", handleProfileEditSubmit);
 
 const popupCloseBtn = document.querySelector(".popup__close-btn");
 popupCloseBtn.addEventListener("click", () => {

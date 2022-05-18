@@ -11,12 +11,12 @@
 
 <body class="body">
     <header class="header">
-        <img src="./images/amerca.svg" alt="Logo" class="header__logo" />
+        <img src="./images/logo.svg" alt="Logo" class="header__logo" />
         <div class="header__sep"></div>
     </header>
     <main class="main">
         <section class="profile">
-            <img class="profile__img" src="./images/profile__person.jpg">
+            <img class="profile__img" src="./images/profilePerson.jpg">
             <div class="prrofile__description">
                 <h2 class="profile__description-name">Jacques Cousteau</h2>
                 <p class="profile__description-prof">Explorer</p>
@@ -27,7 +27,6 @@
         <section class="elements">
             <ul class="elements__ul"> </ul>
         </section>
-
     </main>
     <footer class="footer">
         <p class="footer__copyrights"> &copy;
@@ -44,7 +43,7 @@
             <input class="popup__name" type="text" placeholder="Name" value="Jacques Cousteau">
             <input class="popup__description" type="text" value="Explorer" placeholder="About me">
         </div>
-        <input class="popup__submit_button" type="submit" value="Save">
+        <input onclick=handleProfileEditSubmit(); class="popup__submit_button" type="submit" value="Save">
     </section>
     <script src="./scripts/index.js"></script>
 </body>
