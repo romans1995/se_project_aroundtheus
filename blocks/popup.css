@@ -109,17 +109,11 @@
         @media screen and (max-width: 565px) {
             .popup {
                 left: 5%;
+                width: 282px;
+                height: 322px;
             }
             .popup__close-btn {
                 left: 77.15%;
                 background-size: 26px;
-            }
-        }
-        
-        @media screen and (max-width: 320px) {
-            .popup {
-                left: 5%;
-                width: 282px;
-                height: 322px;
             }
         }

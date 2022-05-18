@@ -13,26 +13,24 @@
 .elements__ul>* {
     flex: 0 0 30%;
 }
+
 @media screen and (max-width: 904px) {
-    .elements__ul>*{
+    .elements__ul>* {
         flex: none;
     }
-    .elements__ul{
+    .elements__ul {
         flex-direction: none;
+    }
+    .elements {
+        width: 100%;
+    }
 }
-.elements{
-    width: 100%;
-}
- }
 
 @media screen and (max-width: 565px) {
-    .elements__ul>*{
+    .elements__ul>* {
         flex: none;
     }
- 
-.elements{
-    width: 100%;
-}
-
-
+    .elements {
+        margin: 36px 19px 19px 0;
+    }
 }

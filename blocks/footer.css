@@ -1,3 +1,12 @@
 .footer {
-    text-align: center;
+    margin-top: 4.6vw;
+    margin-left: 22vw;
+    text-align: left;
+}
+
+@media screen and (max-width: 320px) {
+    .footer {
+        margin-top: 50px;
+        margin-left: 9vw;
+    }
 }
