@@ -1,4 +1,12 @@
 # Project 4: Around The U.S.
+<p> project name :Around The U.S.</p><br>
+<p>Languges used:</p>
+<lu>
+<li>HTML</li>
+<li>CSS</li>
+<li>JAVASCRIPT</li>
+</ul><br>
+<p><a src= "https://romans1995.github.io/web_project_4/">gitpages link</a><p>
 
 ### Overview
 
