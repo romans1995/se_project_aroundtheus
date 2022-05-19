@@ -8,7 +8,14 @@
 </ul><br>
 <a href= "https://romans1995.github.io/web_project_4/">git pages link</a>
 
-### Overview
+<h3>description</h3>
+<p>In this project I did some html and Css design for the 4 project via figma</p>
+<p>in this project you can edit the name of the person </p>
+<p>And you can like pictures </p>
+
+
+
+### Overview 
 
 * Figma
 * Images
