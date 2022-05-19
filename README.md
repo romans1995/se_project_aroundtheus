@@ -6,7 +6,7 @@
 <li>CSS</li>
 <li>JAVASCRIPT</li>
 </ul><br>
-<a src= "https://romans1995.github.io/web_project_4/">gitpages link</a>
+<a href= "https://romans1995.github.io/web_project_4/">git pages link</a>
 
 ### Overview
 
