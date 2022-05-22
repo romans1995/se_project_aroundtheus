@@ -29,28 +29,6 @@ const elementsList = [{
 const elements = document.querySelector(".elements");
 const elementList = elements.querySelector(".elements__ul");
 
-// let template = document.createElement("template");
-// template.classList.add("element-Stracture");
-
-// let list = document.createElement("li");
-// list.classList.add("element");
-
-// const elementImage = document.createElement("img");
-// elementImage.classList.add("element__image");
-
-// let divelement = document.createElement("div");
-// divelement.classList.add("element__title-area");
-// const likeBtn = document.createElement("button");
-// likeBtn.classList.add("element__likeBtn");
-// likeBtn.setAttribute("type", "button");
-// list.appendChild(elementImage);
-// list.appendChild(divelement);
-
-// let elementTitle = document.createElement("h2");
-// elementTitle.classList.add("element__title");
-// divelement.appendChild(elementTitle);
-// divelement.appendChild(likeBtn);
-
 const addelement = (elem) => {
     const list = document.querySelector(".element-Stracture").content;
     const elementCard = list.querySelector(".element").cloneNode(true);
