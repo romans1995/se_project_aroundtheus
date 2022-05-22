@@ -52,8 +52,8 @@ const elementList = elements.querySelector(".elements__ul");
 // divelement.appendChild(likeBtn);
 
 const addelement = (elem) => {
-    const list = document.getElementById("elment");
-    const elementCard = list.cloneNode(true);
+    const list = document.querySelector(".element-Stracture").content;
+    const elementCard = list.querySelector(".element").cloneNode(true);
     const elementTitleElement = elementCard.querySelector(".element__title");
     elementTitleElement.textContent = elem.name;
     const elementImage = elementCard.querySelector(".element__image");
