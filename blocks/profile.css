@@ -24,7 +24,7 @@
     transition: 0.3s;
 }
 
-.profile__description-name {
+.prrofile__info-name {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
@@ -34,11 +34,11 @@
     width: 370px;
 }
 
-.prrofile__description {
+.prrofile__info {
     padding-left: 3px;
 }
 
-.profile__description-pro {
+.prrofile__info-pro {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -75,7 +75,7 @@
         text-align: center;
         flex-direction: column;
     }
-    .profile__description-name {
+    .prrofile__info-name {
         font-size: 22px;
         height: none;
         width: 100%;
