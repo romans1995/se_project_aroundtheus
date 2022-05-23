@@ -54,7 +54,7 @@ elementsList.forEach((elem) => addAllelements(elem, elementList));
 let nameInput = document.getElementsByClassName("popup__name")[0];
 let aboutInput = document.getElementsByClassName("popup__description")[0];
 
-const profilInput = document.querySelector(".popup__submit_button");
+const profilInput = document.querySelector(".popup__submit-button");
 const EditModeName = document.querySelector(".profile__edit");
 
 let profileName = document.querySelector(".profile__description-name");
