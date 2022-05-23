@@ -15,6 +15,7 @@
     height: 24px;
     width: 24px;
     margin-top: 49px;
+    margin-left: 18px;
 }
 
 .profile__edit:hover {
@@ -30,6 +31,7 @@
     font-size: 42px;
     line-height: 48px;
     height: 39px;
+    width: 370px;
 }
 
 .prrofile__description {
@@ -76,6 +78,7 @@
     .profile__description-name {
         font-size: 22px;
         height: none;
+        width: 100%;
     }
     .profile__img {
         margin: 0 auto;
@@ -87,6 +90,6 @@
     .profile__edit {
         background-size: 7px 7px;
         position: absolute;
-        right: 10vw;
+        right: 18px;
     }
 }
