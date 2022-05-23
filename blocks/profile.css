@@ -64,8 +64,8 @@
 
 .profile__img {
     border-radius: 50%;
-    Width: 168.75px;
-    Height: 127.5px;
+    width: 168.75px;
+    height: 127.5px;
 }
 
 @media screen and (max-width: 565px) {
