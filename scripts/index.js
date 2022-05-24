@@ -25,29 +25,11 @@ const elementsList = [{
         link: "./images/element_5.jpg",
     },
 ];
-// elements show
-const elements = document.querySelector(".elements");
-const elementList = elements.querySelector(".elements__ul");
+// cards show
 
-const addelement = (elem) => {
-    const list = document.querySelector(".element-Stracture").content;
-    const elementCard = list.querySelector(".element").cloneNode(true);
-    const elementTitleElement = elementCard.querySelector(".element__title");
-    elementTitleElement.textContent = elem.name;
-    const elementImage = elementCard.querySelector(".element__image");
-    elementImage.src = elem.link;
-    elementImage.alt = `picture of a ${elem.name}`;
-    const likeBtn = elementCard.querySelector(".element__likeBtn");
-    likeBtn.addEventListener("click", () =>
-        likeBtn.classList.toggle("element__likeBtnn_active"));
-    return elementCard;
-};
-
-const addAllelements = (elem, arr) => {
-    arr.appendChild(addelement(elem));
-};
-
-elementsList.forEach((elem) => addAllelements(elem, elementList));
+ function handleClick(event) {
+    event.target.classList.contains("element__likeBtnn_active") ? event.target.classList.remove('element__likeBtnn_active')  : event.target.classList.add('element__likeBtnn_active');
+  };
 
 // popup
 
