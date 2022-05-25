@@ -10,7 +10,7 @@
             top: 195px;
             left: 425px;
             right: 425px;
-            font-family: 'Inter';
+            font-family: 'Inter', sans-serif;
             flex-direction: column;
             flex-wrap: nowrap;
             align-items: center;
@@ -22,7 +22,7 @@
         }
         
         .popup__title {
-            font-family: 'Inter';
+            font-family: 'Inter', sans-serif;
             font-style: normal;
             font-weight: 900;
             font-size: 24px;
@@ -75,7 +75,7 @@
             border: 0 none #ccc;
             border-bottom: 2px solid #ccc;
             border-radius: 0;
-            font-family: 'Inter';
+            font-family: 'Inter', sans-serif;
             font-style: normal;
             font-weight: 400;
             font-size: 14px;
@@ -88,13 +88,12 @@
             border: 0 none #ccc;
             border-bottom: 2px solid #ccc;
             border-radius: 0;
-            font-family: 'Inter';
+            font-family: 'Inter', sans-serif;
             font-style: normal;
             font-weight: 400;
             font-size: 14px;
             line-height: 17px;
         }
-        
         
         .popup__close-btn:hover {
             cursor: pointer;
