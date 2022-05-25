@@ -1,17 +1,14 @@
 .elements {
     color: #fff;
-    width: 880px;
+    max-width: 880px;
+    margin-right: 30px;
 }
 
 .elements__ul {
-    display: flex;
-    flex-wrap: wrap;
     row-gap: 21px;
-    column-gap: 17px;
-}
-
-.elements__ul>* {
-    flex: 0 0 30%;
+    column-gap: 87px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
 }
 
 @media screen and (max-width: 904px) {

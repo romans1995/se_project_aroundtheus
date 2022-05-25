@@ -1,13 +1,13 @@
     .element__image {
-        width: 100%;
+        width: 282px;
         height: 282px;
         border-radius: 10px 10px 0 0;
     }
     
     .element {
-        width: 20%;
         display: flex;
         flex-direction: column;
+        width: 282px;
     }
     
     .element__title-area {
@@ -21,16 +21,20 @@
         border-radius: 0 0 10px 10px;
         display: flex;
         flex-direction: row;
+        padding: 0 18px 10px 21px;
+        align-items: center;
     }
     
     .element__likeBtn {
         background-image: url(../images/icons/heart_icon.svg);
         width: 10%;
-        height: 20px;
+        height: 19px;
         background-repeat: no-repeat;
         background-color: transparent;
         border: none;
-        margin-top: 24px;
+        text-align: center;
+        flex-shrink: 0;
+        background-size: 19px;
     }
     
     .element__likeBtn:hover {
@@ -44,8 +48,7 @@
         flex-grow: 1;
         font-weight: 900;
         font-size: 24px;
-        line-height: 1.2;
-        padding-left: 21px;
+        line-height: 29px;
         white-space: nowrap;
         overflow: hidden;
     }
