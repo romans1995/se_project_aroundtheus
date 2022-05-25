@@ -1,7 +1,15 @@
 .footer {
-    margin-top: 4.6vw;
-    margin-left: 22vw;
+    margin-top: 4.2vw;
+    margin-left: 25vw;
     text-align: left;
+}
+
+.footer__copyrights {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
 }
 
 @media screen and (max-width: 320px) {

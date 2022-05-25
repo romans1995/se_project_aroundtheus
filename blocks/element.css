@@ -1,6 +1,6 @@
     .element__image {
-        width: 282px;
-        height: 282px;
+        max-width: 282px;
+        max-height: 282px;
         border-radius: 10px 10px 0 0;
     }
     
@@ -59,7 +59,11 @@
     
     @media screen and (max-width: 904px) {
         .element {
-            width: 45%;
+            width: 100%;
+        }
+        .element__image {
+            width: 100%;
+            max-width: none;
         }
     }
     

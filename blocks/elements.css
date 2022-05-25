@@ -11,22 +11,14 @@
     grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
 }
 
-@media screen and (max-width: 904px) {
-    .elements__ul>* {
-        flex: none;
-    }
+@media screen and (max-width: 974px) {
     .elements__ul {
+        grid-template-columns: repeat(auto-fit, minmax(214px, 1fr));
         flex-direction: none;
-    }
-    .elements {
-        width: 100%;
     }
 }
 
 @media screen and (max-width: 565px) {
-    .elements__ul>* {
-        flex: none;
-    }
     .elements {
         margin: 36px 19px 19px 0;
     }
