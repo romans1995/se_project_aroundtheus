@@ -6,67 +6,65 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project 4: Around The U.S.</title>
-    <link rel="manifest" href="/manifest.webmanifest">
     <link rel="stylesheet" href="./pages/index.css" />
 </head>
 
 <body class="body">
     <header class="header">
         <img src="./images/logo.svg" alt="Logo" class="header__logo" />
-        <div class="header__sep"></div>
     </header>
     <main class="main">
         <section class="profile">
             <img class="profile__img" src="./images/profilePerson.jpg" alt="profile img">
             <div class="profile__description">
-                <h2 class="profile__description-name">Jacques Cousteau</h2>
+                <h1 class="profile__description-name">Jacques Cousteau</h1>
                 <p class="profile__description-prof">Explorer</p>
             </div>
             <button class="profile__edit" type="button"></button>
-            <button class="profile__newSong" type="button"></button>
+            <button class="profile__add" type="button"></button>
         </section>
         <div class="elements">
-            <ul class="elements__ul">
+            <ul class="elements__list">
                 <li class="element">
                     <img class="element__image" src="./images/element_1.jpg" alt="Yosemite Valley">
                     <div class="element__title-area">
                         <h2 class="element__title">Yosemite Valley</h2>
-                        <button class="element__likeBtn" onclick="handleClick(event)"></button>
+                        <button class="element__likeBtn"  type="button"></button>
                     </div>
                 </li>
                 <li class="element">
                     <img class="element__image" src="./images/element_2.jpg" alt="Forest">
                     <div class="element__title-area">
                         <h2 class="element__title">Forest</h2>
-                        <button class="element__likeBtn" onclick="handleClick(event)"></button>
+                        <button class="element__likeBtn"  type="button"></button>
                     </div>
                 </li>
                 <li class="element">
                     <img class="element__image" src="./images/element_3.jpg" alt="Lake Louise">
                     <div class="element__title-area">
                         <h2 class="element__title">Lake Louise</h2>
-                        <button class="element__likeBtn" onclick="handleClick(event)"></button>
+                        <button class="element__likeBtn"  type="button"></button>
                     </div>
                 </li>
                 <li class="element">
                     <img class="element__image" src="./images/element_4.jpg" alt="Bald Mountains">
                     <div class="element__title-area">
                         <h2 class="element__title">Bald Mountains</h2>
-                        <button class="element__likeBtn" onclick="handleClick(event)"></button>
+                        <button class="element__likeBtn"  type="button"></button>
                     </div>
                 </li>
                 <li class="element">
                     <img class="element__image" src="./images/element_6.jpg" alt="anoise National Park">
                     <div class="element__title-area">
                         <h2 class="element__title">anoise National Park</h2>
-                        <button class="element__likeBtn" onclick="handleClick(event)"></button>
+                        <button class="element__likeBtn"  type="button"></button>
                     </div>
                 </li>
                 <li class="element">
                     <img class="element__image" src="./images/element_5.jpg" alt="Latemar">
                     <div class="element__title-area">
                         <h2 class="element__title">Latemar</h2>
-                        <button class="element__likeBtn" onclick="handleClick(event)"></button>
+                        <button class="element__likeBtn"  type="button"></button>
                     </div>
                 </li>
             </ul>
@@ -81,13 +79,13 @@
         </p>
     </footer>
     <section id="popup" class="popup">
-        <div class="popup__close-btn"></div>
-        <h2 class="popup__title">Edit profile</h2>
-        <div class="popup__inputs">
+        <button type="button" class="popup__close-btn"></button>
+        <h3 class="popup__title">Edit profile</h3>
+        <form class="popup__inputs" name="popuo__inputs">
             <input class="popup__name" type="text" placeholder="Name" value="Jacques Cousteau">
             <input class="popup__description" type="text" value="Explorer" placeholder="About me">
-        </div>
-        <input onclick=handleProfileEditSubmit(); class="popup__submit-button" type="submit" value="Save">
+        <input onclick=handleProfileEditSubmit(event); class="popup__submit-button" type="submit" value="Save">
+    </form>
     </section>
 
     <script src="./scripts/index.js"></script>

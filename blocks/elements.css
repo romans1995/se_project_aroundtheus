@@ -4,7 +4,7 @@
     margin-right: 30px;
 }
 
-.elements__ul {
+.elements__list {
     row-gap: 21px;
     column-gap: 87px;
     display: grid;
@@ -12,7 +12,7 @@
 }
 
 @media screen and (max-width: 974px) {
-    .elements__ul {
+    .elements__list {
         grid-template-columns: repeat(auto-fit, minmax(214px, 1fr));
         flex-direction: none;
     }

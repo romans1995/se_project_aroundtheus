@@ -1,35 +1,3 @@
-const elementsList = [{
-        name: "Yosemite Valley",
-        link: "./images/element_2.jpg",
-    },
-    {
-        name: "Forest",
-        link: "./images/element_1.jpg",
-    },
-
-    {
-        name: "Lake Louise",
-        link: "./images/element_3.jpg",
-    },
-    {
-        name: "Bald Mountains",
-        link: "./images/element_4.jpg",
-    },
-
-    {
-        name: "Vanoise National Park",
-        link: "./images/element_6.jpg",
-    },
-    {
-        name: "Latemar",
-        link: "./images/element_5.jpg",
-    },
-];
-// cards show
-
- function handleClick(event) {
-    event.target.classList.contains("element__likeBtnn_active") ? event.target.classList.remove('element__likeBtnn_active')  : event.target.classList.add('element__likeBtnn_active');
-  };
 
 // popup
 
@@ -48,7 +16,8 @@ EditModeName.addEventListener("click", () => {
     nameInput.value = profileName.textContent;
     aboutInput.value = profileAbout.textContent;
 });
-const handleProfileEditSubmit = () => {
+const handleProfileEditSubmit = (event) => {
+    event.preventDefault();
     popup.classList.remove("popup__active");
     profileName.textContent = nameInput.value;
     profileAbout.textContent = aboutInput.value;

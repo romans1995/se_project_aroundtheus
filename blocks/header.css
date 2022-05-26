@@ -1,6 +1,8 @@
 .header {
     max-width: 880px;
     margin: 0 auto;
+    padding-bottom: 119px;
+    border-bottom: 1px solid rgb(59,59,59);
 }
 
 .header__logo {
@@ -10,12 +12,7 @@
     width: 173px;
 }
 
-.header__sep {
-    margin-top: 119px;
-    border-bottom: #545454 solid 1px;
-    width: 100%;
-    opacity: 1.5;
-}
+
 
 @media screen and (max-width: 565px) {
     .header__logo {
