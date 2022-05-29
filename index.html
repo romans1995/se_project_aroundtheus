@@ -81,10 +81,10 @@
     <section id="popup" class="popup">
         <button type="button" class="popup__close-btn"></button>
         <h3 class="popup__title">Edit profile</h3>
-        <form class="popup__inputs" name="popuo__inputs">
-            <input class="popup__name" type="text" placeholder="Name" value="Jacques Cousteau">
-            <input class="popup__description" type="text" value="Explorer" placeholder="About me">
-        <input onclick=handleProfileEditSubmit(event); class="popup__submit-button" type="submit" value="Save">
+        <form class="popup__inputs-container" name="popuo__inputs">
+            <input class="popup__inputs popup__inputs_name" type="text" placeholder="Name" value="Jacques Cousteau">
+            <input class=" popup__inputs popup__inputs_description" type="text" value="Explorer" placeholder="About me">
+        <button onclick=handleProfileEditSubmit(event); class="popup__inputs popup__inputs_submit-button" type="submit" >Save</button>
     </form>
     </section>
 

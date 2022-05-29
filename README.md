@@ -1,7 +1,7 @@
 # Project 4: Around The U.S.
 <p> project name :Around The U.S.</p><br>
 <p>Languges used:</p>
-<lu>
+<ul>
 <li>HTML</li>
 <li>CSS</li>
 <li>JAVASCRIPT</li>
