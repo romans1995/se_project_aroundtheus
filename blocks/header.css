@@ -1,24 +1,22 @@
 .header {
     max-width: 880px;
     margin: 0 auto;
-    padding-bottom: 119px;
-    border-bottom: 1px solid rgb(59,59,59);
+    padding-bottom: 41px;
+    border-bottom: 1px solid rgb(59, 59, 59);
 }
 
 .header__logo {
-    position: absolute;
-    left:  23vw;
-    top: 45px;
     width: 173px;
+    padding-top: 45px;
+    padding-left: 3vw;
 }
 
-
-
 @media screen and (max-width: 565px) {
+    .header {
+        padding-bottom: 41px;
+    }
     .header__logo {
         position: relative;
         left: 30%;
-        top: 45px;
     }
-    
 }
