@@ -7,7 +7,9 @@
 <li>CSS</li>
 <li>JAVASCRIPT</li>
 </ul><br>
-* [Git pages link](https://romans1995.github.io/web_project_4/)
+
+* * link * *   
+- [Git pages link](https://romans1995.github.io/web_project_4/)
 
 # description
 
