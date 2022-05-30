@@ -34,11 +34,12 @@ const openpopup = (event) => {
     popup.classList.toggle("popup__active");
 }
 const overlaypopup = () => {
-    popoverlay.style.display = "none" ? popoverlay.style.display = "block" : popoverlay.style.display = "block";
+    popoverlay.style.display = "none" ? popoverlay.style.display = "block" : popoverlay.style.display = "none";
 }
 const closePopUp = () => {
     popup.classList.remove("popup__active");
     popoverlay.style.display = "none";
 
 }
-popupCloseBtn.addEventListener("click", closePopUp, overlaypopup);
+popupCloseBtn.addEventListener("click", closePopUp);
+popoverlay.addEventListener("click", closePopUp);
