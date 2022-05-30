@@ -2,7 +2,7 @@
 
 const nameInput = document.querySelector(".popup__inputs_name");
 const aboutInput = document.querySelector(".popup__inputs_description");
-const popoverlay = document.querySelector(".popup__overlay");
+const popoverlay = document.querySelector(".popup");
 
 const profilInput = document.querySelector(".popup__inputs_submit-button");
 const EditModeName = document.querySelector(".profile__edit");
@@ -12,7 +12,7 @@ let profileAbout = document.querySelector(".profile__description-prof");
 const popup = document.querySelector("#popup");
 
 const editProfileFunction = () => {
-    openpopup();
+    openPopup();
     overlaypopup();
     nameInput.value = profileName.textContent;
     aboutInput.value = profileAbout.textContent;
@@ -30,7 +30,7 @@ profilInput.addEventListener("submit", handleProfileEditSubmit);
 // remove popup 
 const popupCloseBtn = document.querySelector(".popup__close-btn");
 
-const openpopup = (event) => {
+const openPopup = () => {
     popup.classList.toggle("popup__active");
 }
 const overlaypopup = () => {
@@ -42,4 +42,4 @@ const closePopUp = () => {
 
 }
 popupCloseBtn.addEventListener("click", closePopUp);
-popoverlay.addEventListener("click", closePopUp);
+// popoverlay.addEventListener("click", closePopUp);
