@@ -1,6 +1,6 @@
 # Project 4: Around The U.S.
 
-<p> project name :Around The U.S.</p><br>
+## project name :Around The U.S.
 <p>Languges used:</p>
 <ul>
 <li>HTML</li>
