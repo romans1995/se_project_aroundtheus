@@ -8,7 +8,6 @@
 <li>JAVASCRIPT</li>
 </ul><br>
 
-* * link * *   
 - [Git pages link](https://romans1995.github.io/web_project_4/)
 
 # description
