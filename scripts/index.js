@@ -3,6 +3,7 @@
 const nameInput = document.querySelector(".popup__inputs_name");
 const aboutInput = document.querySelector(".popup__inputs_description");
 
+
 const profilInput = document.querySelector(".popup__inputs_submit-button");
 const EditModeName = document.querySelector(".profile__edit");
 
@@ -29,6 +30,9 @@ const popupCloseBtn = document.querySelector(".popup__close-btn");
 
 const openpopup = (event) => {
     popup.classList.toggle("popup__active");
+}
+const overlaypopup = ()=>{
+
 }
 const closePopUp = () => {
     popup.classList.remove("popup__active");

@@ -14,7 +14,7 @@
     border: 1px solid #fff;
     height: 24px;
     width: 24px;
-    margin-top: 49px;
+    margin-top: 43px;
     margin-left: 18px;
 }
 
@@ -31,14 +31,20 @@
     font-size: 42px;
     line-height: 48px;
     height: 39px;
-    width: 370px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 370px;
 }
 
 .profile__description {
-    padding-left: 3px;
+  
+    display: flex;
 }
-
-.profile__description-pro {
+.profile__description-prof {
+    align-self: flex-end;
+    right: 400px;
+    position: relative;
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -52,11 +58,10 @@
     background-position: center;
     background-size: 20px;
     box-sizing: border-box;
-    border: 1px solid #fff;
-    max-width: 150px;
-    height: 50px;
+    border: 2px solid #FFFFFF;
+    width: 150px; 
+    height: 50px; 
     margin-top: 50px;
-    margin-left: 165px;
 }
 
 .profile__add:hover {
@@ -66,19 +71,33 @@
 
 .profile__img {
     border-radius: 50%;
-    width: 168.75px;
-    height: 127.5px;
+    width: 120px;
+    height: 120px;
+    margin: 0;
 }
 
-@media screen and (max-width: 565px) {
+
+@media screen and (max-width: 640px) {
     .profile {
         text-align: center;
         flex-direction: column;
     }
+    .profile__description {
+        flex-direction: column;
+    }
+    
+    
     .profile__description-name {
         font-size: 22px;
         height: none;
         width: 100%;
+        margin: 0 auto;
+    }
+
+    .profile__description-prof {
+    align-self:auto;
+    right: 0;
+    font-size: 14px;
     }
     .profile__img {
         margin: 0 auto;
@@ -91,5 +110,6 @@
         background-size: 7px 7px;
         position: absolute;
         right: 18px;
+        margin-top: 15px;
     }
 }

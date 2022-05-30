@@ -17,6 +17,8 @@
     }
     .header__logo {
         position: relative;
-        left: 30%;
+        padding-top: 30px;
+        padding-left: 2vw;
+         width: 126px;
     }
 }

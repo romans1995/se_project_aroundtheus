@@ -69,6 +69,6 @@
     
     @media screen and (max-width: 565px) {
         .element {
-            width: 90%;
+            width: 100%;
         }
     }
