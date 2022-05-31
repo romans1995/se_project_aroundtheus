@@ -86,7 +86,7 @@
     transition: 0.3s;
 }
 
-.popup__inputs_name {
+.popup__input_type_name {
     width: 80%;
     margin-bottom: 30px;
     border: 0 none #ccc;
@@ -99,7 +99,7 @@
     line-height: 17px;
 }
 
-.popup__inputs_description {
+.popup__input_type_description {
     width: 80%;
     margin-bottom: 48px;
     border: 0 none #ccc;

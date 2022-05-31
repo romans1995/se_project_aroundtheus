@@ -1,7 +1,7 @@
 // popup
 
-const nameInput = document.querySelector(".popup__inputs_name");
-const aboutInput = document.querySelector(".popup__inputs_description");
+const nameInput = document.querySelector(".popup__input_type_name");
+const aboutInput = document.querySelector(".popup__input_type_description");
 const popoverlay = document.querySelector(".popup");
 
 const profilInput = document.querySelector(".popup__inputs_submit-button");
