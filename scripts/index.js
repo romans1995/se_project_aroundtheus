@@ -7,39 +7,35 @@ const popoverlay = document.querySelector(".popup");
 const profilInput = document.querySelector(".popup__inputs_submit-button");
 const EditModeName = document.querySelector(".profile__edit");
 
-let profileName = document.querySelector(".profile__description-name");
-let profileAbout = document.querySelector(".profile__description-prof");
-const popup = document.querySelector("#popup");
+const profileName = document.querySelector(".profile__description-name");
+const profileAbout = document.querySelector(".profile__description-prof");
+const popup_container = document.querySelector(".popup__container");
+const popupCloseBtn = document.querySelector(".popup__close-btn");
 
 const editProfileFunction = () => {
     openPopup();
-    overlaypopup();
     nameInput.value = profileName.textContent;
     aboutInput.value = profileAbout.textContent;
 }
 const handleProfileEditSubmit = (event) => {
     event.preventDefault();
-    closePopUp();
+
     popoverlay.style.display = "none";
     profileName.textContent = nameInput.value;
     profileAbout.textContent = aboutInput.value;
+    closePopUp();
 };
-EditModeName.addEventListener("click", editProfileFunction);
-
-profilInput.addEventListener("submit", handleProfileEditSubmit);
-// remove popup 
-const popupCloseBtn = document.querySelector(".popup__close-btn");
 
 const openPopup = () => {
-    popup.classList.toggle("popup__active");
+    popup_container.classList.toggle("popup_active");
+    popoverlay.style.display = "block"
 }
-const overlaypopup = () => {
-    popoverlay.style.display = "none" ? popoverlay.style.display = "block" : popoverlay.style.display = "none";
-}
+
 const closePopUp = () => {
-    popup.classList.remove("popup__active");
+    popup.classList.remove("popup_active");
     popoverlay.style.display = "none";
 
 }
+EditModeName.addEventListener("click", editProfileFunction);
+profilInput.addEventListener("submit", handleProfileEditSubmit);
 popupCloseBtn.addEventListener("click", closePopUp);
-// popoverlay.addEventListener("click", closePopUp);
