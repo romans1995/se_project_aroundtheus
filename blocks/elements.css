@@ -1,8 +1,7 @@
 .elements {
     color: #fff;
     max-width: 880px;
-    margin-right: 30px;
-    margin-top: 46px;
+    margin: 46px 30px auto;
 }
 
 .elements__list {
@@ -12,9 +11,6 @@
     padding-inline-start: initial;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
-
-
-
 
 @media screen and (max-width: 974px) {
     .elements__list {
@@ -26,5 +22,5 @@
 @media screen and (max-width: 565px) {
     .elements {
         margin: 36px 19px 19px 19px;
-}
+    }
 }

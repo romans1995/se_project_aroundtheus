@@ -1,4 +1,5 @@
 // popup
+
 const nameInput = document.querySelector(".popup__input_type_name");
 const aboutInput = document.querySelector(".popup__input_type_description");
 const popOverlay = document.querySelector(".popup");
@@ -9,11 +10,14 @@ const profileAbout = document.querySelector(".profile__description-prof");
 const popup_container = document.querySelector(".popup__container");
 const popupCloseBtn = document.querySelector(".popup__close-btn");
 
+//popup functions
+
 const editProfileFunction = () => {
     openPopup();
     nameInput.value = profileName.textContent;
     aboutInput.value = profileAbout.textContent;
 }
+
 const handleProfileEditSubmit = event => {
     popOverlay.style.display = "none";
     profileName.textContent = nameInput.value;
@@ -31,6 +35,8 @@ const closePopUp = () => {
     popup_container.classList.remove("popup_active");
     popOverlay.style.display = "none";
 }
+
+//popup eventsListeners
 
 editModeName.addEventListener("click", editProfileFunction);
 editPopupForm.addEventListener("submit", handleProfileEditSubmit);

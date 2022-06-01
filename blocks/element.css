@@ -20,20 +20,21 @@
         border-radius: 0 0 10px 10px;
         display: flex;
         flex-direction: row;
-        padding: 0 18px 10px 21px;
+        padding: 25px 15px 25px 21px;
         align-items: center;
     }
     
     .element__likeBtn {
         background-image: url(../images/icons/heart_icon.svg);
-        width: 10%;
+        width: 21px;
         height: 19px;
         background-repeat: no-repeat;
         background-color: transparent;
+        background-position: center;
         border: none;
-        text-align: center;
         flex-shrink: 0;
         background-size: 19px;
+        padding: 0
     }
     
     .element__likeBtn:hover {
@@ -50,10 +51,7 @@
         line-height: 29px;
         white-space: nowrap;
         overflow: hidden;
-    }
-    
-    .element__likeBtnn_active {
-        background-image: url(../images/icons/heartIconFilled.svg);
+        margin: 0;
     }
     
     @media screen and (max-width: 904px) {
