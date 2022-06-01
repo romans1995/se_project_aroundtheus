@@ -55,17 +55,8 @@
     }
     
     @media screen and (max-width: 904px) {
-        .element {
-            width: 100%;
-        }
         .element__image {
             width: 100%;
             max-width: none;
-        }
-    }
-    
-    @media screen and (max-width: 565px) {
-        .element {
-            width: 100%;
         }
     }
