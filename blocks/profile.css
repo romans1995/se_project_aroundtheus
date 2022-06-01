@@ -2,7 +2,7 @@
     color: #fff;
     display: flex;
     justify-content: space-around;
-    margin-top: 36.25px;
+    margin: 36.25px 19px 0px 19px;
 }
 
 .profile__edit {
@@ -81,7 +81,7 @@
     margin: 0;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 700px) {
     .profile {
         text-align: center;
         flex-direction: column;
