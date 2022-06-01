@@ -2,6 +2,7 @@
     color: #fff;
     display: flex;
     margin: 40px 19px 0px 19px;
+    align-items: center;
 }
 
 .profile__edit {
@@ -30,7 +31,6 @@
     font-size: 42px;
     line-height: 48px;
     text-overflow: ellipsis;
-    white-space: nowrap;
     overflow: hidden;
     margin: 0;
     max-width: 370px;
@@ -73,6 +73,7 @@
     padding: 0;
     margin-left: auto;
     align-self: center;
+    white-space: nowrap;
 }
 
 .profile__add:hover {
@@ -87,19 +88,21 @@
     margin: 0;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 500px) {
     .profile {
         text-align: center;
         flex-direction: column;
     }
     .profile__description {
-        align-items: center;
+        justify-content: center;
         margin: 0;
+        padding-top: 26px;
+        column-gap: 10px;
     }
     .profile__description-name {
         font-size: 22px;
         max-width: 196px;
-        margin: 0 auto;
+        margin: 0;
     }
     .profile__description-prof {
         align-self: auto;
