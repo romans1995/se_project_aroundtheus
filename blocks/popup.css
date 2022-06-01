@@ -79,7 +79,7 @@
         transition: 0.3s;
     }
     
-    .popup__input_type_name {
+    .popup__inputs_type_name {
         margin-bottom: 30px;
     }
     
@@ -94,7 +94,7 @@
         font-size: 14px;
     }
     
-    .popup__input_type_description {
+    .popup__inputs_type_description {
         margin-bottom: 48px;
     }
     
