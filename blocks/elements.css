@@ -15,7 +15,7 @@
 @media screen and (max-width: 974px) {
     .elements__list {
         grid-template-columns: repeat(auto-fit, minmax(214px, 1fr));
-        flex-direction: none;
+     
     }
 }
 

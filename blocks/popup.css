@@ -11,7 +11,7 @@
         justify-content: center;
         align-items: center;
     }
-    
+
     .popup__container {
         width: 430px;
         color: black;
@@ -26,14 +26,13 @@
         align-items: center;
         justify-content: center;
         padding: 36px;
+        box-sizing: border-box;
     }
-    
+
     .popup_active {
         display: flex;
-        align-items: baseline;
-        margin-top: 20%;
     }
-    
+
     .popup__title {
         font-family: 'Inter', sans-serif;
         font-style: normal;
@@ -42,7 +41,7 @@
         line-height: 29px;
         margin-bottom: 54px;
     }
-    
+
     .popup__close-btn {
         background-image: url(../images/icons/closeIcon.svg);
         background-repeat: no-repeat;
@@ -56,33 +55,35 @@
         top: -38px;
         right: -36px;
     }
-    
+
     .popup__inputs-container {
         display: flex;
         flex-direction: column;
         width: 100%;
         text-align: center;
     }
-    
-    .popup__inputs_submit-button {
+
+    .popup__submit-button {
         background: #000000;
         color: #fff;
         border-radius: 2px;
         height: 50.15px;
         border: none;
         padding: 0;
+        font-size: 18px;
+        line-height: 22px;
     }
-    
-    .popup__inputs_submit-button:hover {
+
+    .popup__submit-button:hover {
         cursor: pointer;
         opacity: 0.8;
         transition: 0.3s;
     }
-    
+
     .popup__inputs_type_name {
         margin-bottom: 30px;
     }
-    
+
     .popup__inputs {
         border-radius: 0;
         font-family: 'Inter', sans-serif;
@@ -93,33 +94,43 @@
         border-bottom: 1px solid rgba(204, 204, 204, 0.5);
         font-size: 14px;
     }
-    
+
     .popup__inputs_type_description {
         margin-bottom: 48px;
     }
-    
+
     .popup__close-btn:hover {
         cursor: pointer;
         opacity: 0.6;
         transition: 0.3s;
     }
-    
+
     @media screen and (max-width: 565px) {
         .popup__inputs {
             max-width: 238px;
         }
+
+        .popup__title {
+            font-size: 18px;
+            line-height: 22px;
+
+        }
+
         .popup__container {
-            width: auto;
             max-width: 282px;
             padding: 22px;
             margin: 19px;
-            margin-top: 130px;
         }
+
         .popup__close-btn {
             top: -30px;
             background-size: contain;
             width: 20px;
             height: 20px;
             right: 0px;
+        }
+        .popup__submit-button {
+            font-size: 14px;
+            line-height: 17px;
         }
     }

@@ -74,6 +74,7 @@
     margin-left: auto;
     align-self: center;
     white-space: nowrap;
+    border-radius: 2px;
 }
 
 .profile__add:hover {
