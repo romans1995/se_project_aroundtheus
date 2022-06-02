@@ -1,8 +1,10 @@
 .profile {
     color: #fff;
     display: flex;
-    margin: 40px 19px 0px 19px;
+    margin-top: 40px;
+    margin-bottom: 46px;
     align-items: center;
+    gap: 30px;
 }
 
 .profile__edit {
@@ -15,7 +17,6 @@
     height: 24px;
     width: 24px;
     padding: 0;
-    margin-left: 18px;
 }
 
 .profile__edit:hover {
@@ -89,7 +90,20 @@
     margin: 0;
 }
 
-@media screen and (max-width: 500px) {
+.profile__description-button {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+}
+
+@media screen and (max-width: 792px) {
+    .profile__description {
+        align-items: baseline;
+        margin-left: 30px;
+    }
+}
+
+@media screen and (max-width: 540px) {
     .profile {
         text-align: center;
         flex-direction: column;
@@ -97,7 +111,6 @@
     .profile__description {
         justify-content: center;
         margin: 0;
-        padding-top: 26px;
         column-gap: 10px;
     }
     .profile__description-name {
@@ -111,8 +124,6 @@
         font-size: 14px;
         width: 282px;
         margin: 0 auto;
-        padding-top: 14px;
-        padding-bottom: 36px;
     }
     .profile__img {
         margin: 0 auto;
