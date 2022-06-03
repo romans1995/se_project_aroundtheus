@@ -22,17 +22,17 @@ const handleProfileEditSubmit = event => {
     profileName.textContent = nameInput.value;
     profileAbout.textContent = aboutInput.value;
     closePopUp();
-   
+
 };
 
 const openPopup = () => {
-    popOverlay.classList.toggle("popup_active");
-   
+    popOverlay.classList.add("popup_active");
+
 }
 
 const closePopUp = () => {
     popOverlay.classList.remove("popup_active");
-   
+
 }
 
 //popup eventsListeners
