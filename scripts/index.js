@@ -41,6 +41,7 @@ const elements = document.querySelector(".elements");
 const elementList = elements.querySelector(".elements__list");
 //image preview
 const imgPrevModal = document.querySelector(".popup_image-prev");
+const clsoeImgPreviewBtn = document.querySelector(".popup__close-button_image-prev");
 
 //popup functions
 
@@ -54,7 +55,7 @@ const handleProfileEditSubmit = event => {
     event.preventDefault();
     profileName.textContent = nameInput.value;
     profileAbout.textContent = aboutInput.value;
-    closePopUp();
+    closePopUp(popOverlay);
 
 };
 
@@ -63,10 +64,12 @@ const openPopup = (elem) => {
 
 }
 
-const closePopUp = () => {
-    popOverlay.classList.remove("popup_active");
+const closePopUp = (elem) => {
+    elem.classList.remove("popup_active");
 
 }
+
+
 
 //elements functions 
 const addelement = (data) => {
@@ -110,7 +113,12 @@ const previewImage = (element) => {
 
 editModeName.addEventListener("click", editProfileFunction);
 editPopupForm.addEventListener("submit", handleProfileEditSubmit);
-popupCloseBtn.addEventListener("click", closePopUp);
+popupCloseBtn.addEventListener("click", () =>{
+    closePopUp(popOverlay);
+});
+clsoeImgPreviewBtn.addEventListener("click", () =>{
+    closePopUp(imgPrevModal);
+});
 
 //element
 initialelements.forEach((element) => addAllelements(element, elementList));
