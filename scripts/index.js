@@ -90,8 +90,10 @@ const addelement = (data) => {
 const addAllelements = (element, list) => {
     list.prepend(addelement(element));
 };
+const addClass = (component, add) => {
+    component.classList.toggle(add);
+};
 
-initialelements.forEach((element) => addAllelements(element, elementList));
 
 const previewImage = (element) => {
     const popupImage = imgPrevModal.querySelector(".popup__image");
@@ -109,3 +111,6 @@ const previewImage = (element) => {
 editModeName.addEventListener("click", editProfileFunction);
 editPopupForm.addEventListener("submit", handleProfileEditSubmit);
 popupCloseBtn.addEventListener("click", closePopUp);
+
+//element
+initialelements.forEach((element) => addAllelements(element, elementList));
