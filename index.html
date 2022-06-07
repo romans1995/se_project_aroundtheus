@@ -52,14 +52,14 @@
             </form>
         </div>
     </section>
-    <section class="popup__addElement">
-        <div class="popup__addElement-container">
-            <button type="button" class="popup__addElement__close-btn"></button>
-            <h3 class="popup__addElement-title">Add new song</h3>
-            <form class="popup__addElement__inputs-container" name="popup__addElement__inputs">
-                <label for="songName">Song</label>
-                <input name="songName" class=" popup__inputs popup__inputs_type_description" type="text" value="Explorer" placeholder="About me">
-                <button class="popup__submit-button" type="submit">Save</button>
+    <section class=" popup popup__addElement">
+        <div class="popup__container ">
+            <button type="button" class="popup__close-btn popup__close-btn-addSong"></button>
+            <h3 class="popup__title">Add new song</h3>
+            <form class="popup__inputs-container" name="popup__addElement__inputs">
+                <input name="songName" class=" popup__inputs popup__inputs_type_songName" type="text"  placeholder="Title">
+                <input name="songLink" class=" popup__inputs popup__inputs_type_songLink" type="text"  placeholder="Image url">
+                <button class="popup__submit-button popup__submit-button-addSong" type="submit">Add</button>
             </form>
         </div>
     </section>

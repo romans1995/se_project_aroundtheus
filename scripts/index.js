@@ -29,6 +29,7 @@ const initialelements = [
 const nameInput = document.querySelector(".popup__inputs_type_name");
 const aboutInput = document.querySelector(".popup__inputs_type_description");
 const popOverlay = document.querySelector(".popup");
+const popOverlayadd = document.querySelector(".popup__addElement");
 const editPopupForm = document.querySelector(".popup__inputs-container");
 const editModeName = document.querySelector(".profile__edit");
 const profileName = document.querySelector(".profile__description-name");
@@ -36,12 +37,14 @@ const profileAbout = document.querySelector(".profile__description-prof");
 const popupCloseBtn = document.querySelector(".popup__close-btn");
 //end popup
 
+const addSongBtn = document.querySelector(".profile__add");
 //elements
 const elements = document.querySelector(".elements");
 const elementList = elements.querySelector(".elements__list");
 //image preview
 const imgPrevModal = document.querySelector(".popup_image-prev");
 const clsoeImgPreviewBtn = document.querySelector(".popup__close-button_image-prev");
+const clsoeAddSongPopup = document.querySelector(".popup__close-btn-addSong");
 
 //popup functions
 
@@ -58,6 +61,10 @@ const handleProfileEditSubmit = event => {
     closePopUp(popOverlay);
 
 };
+const AddSongFunction = () => {
+  openPopup(popOverlayadd);
+
+}
 
 const openPopup = (elem) => {
     elem.classList.add("popup_active");
@@ -112,12 +119,17 @@ const previewImage = (element) => {
 //popup eventsListeners
 
 editModeName.addEventListener("click", editProfileFunction);
+addSongBtn.addEventListener("click", AddSongFunction);
 editPopupForm.addEventListener("submit", handleProfileEditSubmit);
 popupCloseBtn.addEventListener("click", () =>{
     closePopUp(popOverlay);
 });
 clsoeImgPreviewBtn.addEventListener("click", () =>{
     closePopUp(imgPrevModal);
+});
+
+clsoeAddSongPopup.addEventListener("click", () =>{
+  closePopUp(popOverlayadd);
 });
 
 //element
