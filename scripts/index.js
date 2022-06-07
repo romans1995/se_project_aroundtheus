@@ -1,4 +1,4 @@
-const initialelements = [
+let initialelements = [
     {
       name: "Yosemite Valley",
       link: "https://code.s3.yandex.net/web-code/yosemite.jpg"
@@ -24,6 +24,7 @@ const initialelements = [
       link: "https://code.s3.yandex.net/web-code/lago.jpg"
     }
   ]; 
+  let newElement = [];
 // popup
 
 const nameInput = document.querySelector(".popup__inputs_type_name");
@@ -38,6 +39,9 @@ const popupCloseBtn = document.querySelector(".popup__close-btn");
 //end popup
 
 const addSongBtn = document.querySelector(".profile__add");
+let songName = document.querySelector(".popup__inputs_type_songName");
+let songLink = document.querySelector(".popup__inputs_type_songLink");
+
 //elements
 const elements = document.querySelector(".elements");
 const elementList = elements.querySelector(".elements__list");
@@ -62,9 +66,20 @@ const handleProfileEditSubmit = event => {
 
 };
 const AddSongFunction = () => {
-  openPopup(popOverlayadd);
+  openPopup(popOverlayadd); 
+
+   newElement = {name: `${songName.value}`,
+  link: `${songLink.value}`};
 
 }
+const handleAddSongSubmit = event => {
+  event.preventDefault();
+  console.log(newElement);
+  initialelements= initialelements.push(newElement);
+  console.log(initialelements);
+  closePopUp(popOverlayadd);
+
+};
 
 const openPopup = (elem) => {
     elem.classList.add("popup_active");
@@ -121,6 +136,7 @@ const previewImage = (element) => {
 editModeName.addEventListener("click", editProfileFunction);
 addSongBtn.addEventListener("click", AddSongFunction);
 editPopupForm.addEventListener("submit", handleProfileEditSubmit);
+editPopupForm.addEventListener("submit", handleAddSongSubmit);
 popupCloseBtn.addEventListener("click", () =>{
     closePopUp(popOverlay);
 });
