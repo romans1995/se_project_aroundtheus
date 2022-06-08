@@ -32,16 +32,16 @@ const aboutInput = document.querySelector(".popup__inputs_type_description");
 const popOverlay = document.querySelector(".popup");
 const popOverlayadd = document.querySelector(".popup__addElement");
 const editPopupForm = document.querySelector(".popup__inputs-container");
-const editPopupFormAddSong = document.querySelector(".popup__inputs-container-addsong");
+const editPopupFormaddPlace = document.querySelector(".popup__inputs-container-addPlace");
 const editModeName = document.querySelector(".profile__edit");
 const profileName = document.querySelector(".profile__description-name");
 const profileAbout = document.querySelector(".profile__description-prof");
 const popupCloseBtn = document.querySelector(".popup__close-btn");
 //end popup
 
-const addSongBtn = document.querySelector(".profile__add");
-let songName = document.querySelector(".popup__inputs_type_songName");
-let songLink = document.querySelector(".popup__inputs_type_songLink");
+const addPlaceBtn = document.querySelector(".profile__add");
+let placeName = document.querySelector(".popup__inputs_type_placeName");
+let placeLink = document.querySelector(".popup__inputs_type_placeLink");
 
 //elements
 const elements = document.querySelector(".elements");
@@ -49,7 +49,7 @@ const elementList = elements.querySelector(".elements__list");
 //image preview
 const imgPrevModal = document.querySelector(".popup_image-prev");
 const clsoeImgPreviewBtn = document.querySelector(".popup__close-button_image-prev");
-const clsoeAddSongPopup = document.querySelector(".popup__close-btn-addSong");
+const clsoeaddPlacePopup = document.querySelector(".popup__close-btn-addPlace");
 
 //popup functions
 
@@ -66,16 +66,16 @@ const handleProfileEditSubmit = event => {
     closePopUp(popOverlay);
 
 };
-const AddSongFunction = () => {
+const addPlaceFunction = () => {
   openPopup(popOverlayadd); 
 
  
 
 }
-const handleAddSongSubmit = event => {
+const handleaddPlaceSubmit = event => {
   event.preventDefault();
-  newElement = {name: `${songName.value}`,
-  link: `${songLink.value}`};
+  newElement = {name: `${placeName.value}`,
+  link: `${placeLink.value}`};
   closePopUp(popOverlayadd);
   addAllelements(newElement, elementList);
 };
@@ -132,9 +132,9 @@ const previewImage = (element) => {
 //popup eventsListeners
 
 editModeName.addEventListener("click", editProfileFunction);
-addSongBtn.addEventListener("click", AddSongFunction);
+addPlaceBtn.addEventListener("click", addPlaceFunction);
 editPopupForm.addEventListener("submit", handleProfileEditSubmit);
-editPopupFormAddSong.addEventListener("submit", handleAddSongSubmit);
+editPopupFormaddPlace.addEventListener("submit", handleaddPlaceSubmit);
 popupCloseBtn.addEventListener("click", () =>{
     closePopUp(popOverlay);
 });
@@ -142,7 +142,7 @@ clsoeImgPreviewBtn.addEventListener("click", () =>{
     closePopUp(imgPrevModal);
 });
 
-clsoeAddSongPopup.addEventListener("click", () =>{
+clsoeaddPlacePopup.addEventListener("click", () =>{
   closePopUp(popOverlayadd);
 });
 
