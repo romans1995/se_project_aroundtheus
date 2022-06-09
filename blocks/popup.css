@@ -126,7 +126,7 @@
         transition: 0.3s;
     }
     
-    .popup__close-button_image-prev {
+    .popup__close-button-image-prev{
         background-image: url(../images/icons/closeIcon.svg);
         background-repeat: no-repeat;
         background-position: center;
