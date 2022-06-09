@@ -22,7 +22,7 @@
         object-fit: cover;
     }
     
-    .popup_image-prev__container {
+    .popup__image-prev_container {
         color: white;
         box-shadow: 0px 0px 25px rgb(0 0 0 / 15%);
         margin: 0 auto;
@@ -168,7 +168,7 @@
             object-fit: cover;
             height: 299px;
         }
-        .popup_image-prev__container {
+        .popup__image-prev_container {
             padding: 0;
             margin: 0 40px;
             
