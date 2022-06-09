@@ -30,7 +30,7 @@ let initialelements = [
 const nameInput = document.querySelector(".popup__inputs_type_name");
 const aboutInput = document.querySelector(".popup__inputs_type_description");
 const popOverlay = document.querySelector(".popup");
-const popOverlayadd = document.querySelector(".popup__addElement");
+const popOverlayadd = document.querySelector(".popup-addElement");
 const editPopupForm = document.querySelector(".popup__inputs-container");
 const editPopupFormaddPlace = document.querySelector(".popup__inputs-container-addPlace");
 const editModeName = document.querySelector(".profile__edit");
@@ -48,7 +48,7 @@ const elements = document.querySelector(".elements");
 const elementList = elements.querySelector(".elements__list");
 //image preview
 const imgPrevModal = document.querySelector(".popup_image-prev");
-const clsoeImgPreviewBtn = document.querySelector(".popup__close-button_image-prev");
+const clsoeImgPreviewBtn = document.querySelector(".popup__close-button-image-prev");
 const clsoeaddPlacePopup = document.querySelector(".popup__close-btn-addPlace");
 
 //popup functions
