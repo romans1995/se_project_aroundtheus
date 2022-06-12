@@ -10,6 +10,7 @@
     display: grid;
     padding-inline-start: initial;
     grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
+   
 }
 
 @media screen and (max-width: 974px) {
