@@ -29,19 +29,19 @@ const initialelements = [
 
 const nameInput = document.querySelector(".popup__inputs_type_name");
 const aboutInput = document.querySelector(".popup__inputs_type_description");
-const popOverlay = document.querySelector(".popup");
+const profilePopup = document.querySelector(".profile-popup");
 const popOverlayadd = document.querySelector(".popup-addElement");
 const editPopupForm = document.querySelector(".popup__inputs-container");
 const editPopupFormaddPlace = document.querySelector(".popup__inputs-container-addPlace");
 const editModeName = document.querySelector(".profile__edit");
 const profileName = document.querySelector(".profile__description-name");
 const profileAbout = document.querySelector(".profile__description-prof");
-const popupCloseBtn = document.querySelectorAll(".popup__close-btn");
+const popupCloseBtns = document.querySelectorAll(".popup__close-btn");
 //end popup
 
 const addPlaceBtn = document.querySelector(".profile__add");
-let placeName = document.querySelector(".popup__inputs_type_placeName");
-let placeLink = document.querySelector(".popup__inputs_type_placeLink");
+const placeName = document.querySelector(".popup__inputs_type_placeName");
+const placeLink = document.querySelector(".popup__inputs_type_placeLink");
 
 //elements
 const elements = document.querySelector(".elements");
@@ -55,7 +55,7 @@ const popupCaption = imgPrevModal.querySelector(".popup__caption");
 //popup functions
 
 const editProfile = () => {
-  openPopup(popOverlay);
+  openPopup(profilePopup);
   nameInput.value = profileName.textContent;
   aboutInput.value = profileAbout.textContent;
 }
@@ -79,8 +79,8 @@ const handLeadPlaceSubmit = event => {
   };
   closePopUp(popOverlayadd);
   prependCard(newElement, elementList);
-  placeName.value="";
-  placeLink.value="";
+  placeName.value = "";
+  placeLink.value = "";
 };
 
 const openPopup = (elem) => {
@@ -91,8 +91,6 @@ const openPopup = (elem) => {
 const closePopUp = (elem) => {
   elem.classList.remove("popup_active");
 }
-
-
 
 //elements functions 
 const addElement = (data) => {
@@ -109,27 +107,23 @@ const addElement = (data) => {
   elementImage.addEventListener("click", () => previewImage(data));
   deleteBtn.addEventListener("click", () => elementElement.remove());
   likeBtn.addEventListener("click", () =>
-  toggleClass(likeBtn, "element__like-button_active")
+    toggleClass(likeBtn, "element__like-button_active")
   );
   return elementElement;
 };
 const prependCard = (element, list) => {
   list.prepend(addElement(element));
 };
-const toggleClass= (component, add) => {
+const toggleClass = (component, add) => {
   component.classList.toggle(add);
 };
 
-
 const previewImage = (element) => {
-
   popupImage.src = element.link;
   popupImage.alt = `A beautiful place in ${element.name}`;
   popupCaption.textContent = element.name;
   openPopup(imgPrevModal);
 };
-
-
 
 //popup eventsListeners
 
@@ -137,7 +131,7 @@ editModeName.addEventListener("click", editProfile);
 addPlaceBtn.addEventListener("click", addPlaceFunction);
 editPopupForm.addEventListener("submit", handleProfileEditSubmit);
 editPopupFormaddPlace.addEventListener("submit", handLeadPlaceSubmit);
-popupCloseBtn.forEach((button) =>{
+popupCloseBtns.forEach((button) => {
   const popup = button.closest('.popup');
   button.addEventListener('click', () => closePopUp(popup));
 });
