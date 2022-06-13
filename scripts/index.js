@@ -36,7 +36,7 @@ const editPopupFormaddPlace = document.querySelector(".popup__inputs-container-a
 const editModeName = document.querySelector(".profile__edit");
 const profileName = document.querySelector(".profile__description-name");
 const profileAbout = document.querySelector(".profile__description-prof");
-const popupCloseBtns = document.querySelectorAll(".popup__close-btn");
+const allPopupCloseBtns = document.querySelectorAll(".popup__close-btn");
 //end popup
 
 const addPlaceBtn = document.querySelector(".profile__add");
@@ -131,7 +131,7 @@ editModeName.addEventListener("click", editProfile);
 addPlaceBtn.addEventListener("click", addPlaceFunction);
 editPopupForm.addEventListener("submit", handleProfileEditSubmit);
 editPopupFormaddPlace.addEventListener("submit", handLeadPlaceSubmit);
-popupCloseBtns.forEach((button) => {
+allPopupCloseBtns.forEach((button) => {
   const popup = button.closest('.popup');
   button.addEventListener('click', () => closePopUp(popup));
 });
