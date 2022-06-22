@@ -46,11 +46,11 @@
             <button type="button" class="popup__close-btn"></button>
             <h3 class="popup__title">Edit profile</h3>
             <form class="popup__inputs-container" name="popuo__inputs">
-                <input name="popup__input-name" class="popup__inputs popup__inputs_type_name" type="text" placeholder="Name" value="Jacques Cousteau" minlength="2" maxlength="40" required>
-                <span class="popup__input-error name-input-error"></span>
+                <input id="name-input" name=" popup__input-name" class="popup__input popup__inputs_type_name" type="text" placeholder="Name" value="Jacques Cousteau" minlength="2" maxlength="40" required>
+                <span id="name-input-error" class="popup__input_type_error name-input-error"></span>
 
-                <input name="popup__input-description " class=" popup__inputs popup__inputs_type_description " type="text " value="Explorer " placeholder="About me " minlength="2" maxlength="200" required>
-                <span class="popup__input-error name-input-error"></span>
+                <input id="description-input" name="popup__input-description " class=" popup__input popup__inputs_type_description " type="text " value="Explorer " placeholder="About me " minlength="2" maxlength="200" required>
+                <span id="description-input-error" class="popup__input_type_error description-input-error"></span>
                 <button class="popup__submit-button " type="submit ">Save</button>
             </form>
         </div>
@@ -60,8 +60,8 @@
             <button type="button " class="popup__close-btn popup__close-btn-addPlace "></button>
             <h3 class="popup__title ">New place</h3>
             <form class="popup__inputs-container popup__inputs-container-addPlace " name="popup__addElement__inputs ">
-                <input name="placeName " class=" popup__inputs popup__inputs_type_placeName " type="text " placeholder="Title ">
-                <input name="placeLink " class=" popup__inputs popup__inputs_type_placeLink " type="text " placeholder="Image url ">
+                <input name="placeName " class=" popup__input popup__inputs_type_placeName " type="text " placeholder="Title ">
+                <input name="placeLink " class=" popup__input popup__inputs_type_placeLink " type="text " placeholder="Image url ">
                 <button class="popup__submit-button popup__submit-button-addPlace " type="submit ">Create</button>
             </form>
         </div>
@@ -92,6 +92,7 @@
         </div>
     </div>
 
+    <script src="./scripts/validate.js "></script>
     <script src="./scripts/index.js "></script>
 </body>
 
