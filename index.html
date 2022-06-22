@@ -46,50 +46,53 @@
             <button type="button" class="popup__close-btn"></button>
             <h3 class="popup__title">Edit profile</h3>
             <form class="popup__inputs-container" name="popuo__inputs">
-                <input name="popup__input-name" class="popup__inputs popup__inputs_type_name" type="text" placeholder="Name" value="Jacques Cousteau">
-                <input name="popup__input-description" class=" popup__inputs popup__inputs_type_description" type="text" value="Explorer" placeholder="About me">
-                <button class="popup__submit-button" type="submit">Save</button>
+                <input name="popup__input-name" class="popup__inputs popup__inputs_type_name" type="text" placeholder="Name" value="Jacques Cousteau" minlength="2" maxlength="40" required>
+                <span class="popup__input-error name-input-error"></span>
+
+                <input name="popup__input-description " class=" popup__inputs popup__inputs_type_description " type="text " value="Explorer " placeholder="About me " minlength="2" maxlength="200" required>
+                <span class="popup__input-error name-input-error"></span>
+                <button class="popup__submit-button " type="submit ">Save</button>
             </form>
         </div>
     </section>
-    <section class=" popup popup-addElement">
+    <section class=" popup popup-addElement ">
         <div class="popup__container ">
-            <button type="button" class="popup__close-btn popup__close-btn-addPlace"></button>
-            <h3 class="popup__title">New place</h3>
-            <form class="popup__inputs-container popup__inputs-container-addPlace" name="popup__addElement__inputs">
-                <input name="placeName" class=" popup__inputs popup__inputs_type_placeName" type="text" placeholder="Title">
-                <input name="placeLink" class=" popup__inputs popup__inputs_type_placeLink" type="text" placeholder="Image url">
-                <button class="popup__submit-button popup__submit-button-addPlace" type="submit">Create</button>
+            <button type="button " class="popup__close-btn popup__close-btn-addPlace "></button>
+            <h3 class="popup__title ">New place</h3>
+            <form class="popup__inputs-container popup__inputs-container-addPlace " name="popup__addElement__inputs ">
+                <input name="placeName " class=" popup__inputs popup__inputs_type_placeName " type="text " placeholder="Title ">
+                <input name="placeLink " class=" popup__inputs popup__inputs_type_placeLink " type="text " placeholder="Image url ">
+                <button class="popup__submit-button popup__submit-button-addPlace " type="submit ">Create</button>
             </form>
         </div>
     </section>
-    <template class="element-Stracture">
-        <li class="element">
+    <template class="element-Stracture ">
+        <li class="element ">
           <button
-            type="button"
-            aria-label="delete element"
-            class="element__delete-button"
+            type="button "
+            aria-label="delete element "
+            class="element__delete-button "
           ></button>
-          <img src="#" alt="#" class="element__image" />
-          <div class="element__title-area">
-            <h2 class="element__title"></h2>
+          <img src="# " alt="# " class="element__image " />
+          <div class="element__title-area ">
+            <h2 class="element__title "></h2>
             <button
-              class="element__like-button"
-              type="button"
-              aria-label="like element"
+              class="element__like-button "
+              type="button "
+              aria-label="like element "
             ></button>
           </div>
         </li>
       </template>
-    <div class="popup popup_image-prev">
-        <div class="popup__image-prev-container">
-            <button class="popup__close-btn popup__close-button-image-prev" type="button"></button>
-            <img src="#" alt="#" class="popup__image" />
-            <p class="popup__caption"></p>
+    <div class="popup popup_image-prev ">
+        <div class="popup__image-prev-container ">
+            <button class="popup__close-btn popup__close-button-image-prev " type="button "></button>
+            <img src="# " alt="# " class="popup__image " />
+            <p class="popup__caption "></p>
         </div>
     </div>
 
-    <script src="./scripts/index.js"></script>
+    <script src="./scripts/index.js "></script>
 </body>
 
 </html>
