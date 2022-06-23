@@ -1,11 +1,12 @@
 const hideInputError = (input, formElement, { errorClass }) => {
     const errorSpan = formElement.querySelector("#" + input.id + "-error");
-    errorSpan.classList.remove({ errorClass });
+    errorSpan.textContent = "";
+    errorSpan.classList.remove(errorClass);
 };
 const showInputError = (input, formElement, { errorClass }) => {
     const errorSpan = formElement.querySelector("#" + input.id + "-error");
     errorSpan.textContent = input.validationMessage;
-    errorSpan.classList.add({ errorClass });
+    errorSpan.classList.add(errorClass);
 };
 
 const checkInputValidity = (formElement, input, settings) => {
@@ -15,11 +16,28 @@ const checkInputValidity = (formElement, input, settings) => {
         showInputError(input, formElement, settings);
     }
 };
+
+const hasValidInputs = (inputs) => {
+    return inputs.every(input => input.validity.valid === true);
+}
+
+const toggleButton = (inputs, formElement, { errorClass }) => {
+    const disabledButton = formElement.querySelector("button");
+    if (hasValidInputs(inputs)) {
+        disabledButton.removeAttribute("disabled");
+    } else {
+        disabledButton.disabled = true;
+    }
+
+}
 const setEventListeners = (formElement, settings) => {
     const inputs = [...formElement.querySelectorAll(settings.inputSelector)];
     inputs.forEach((input) => {
         input.addEventListener("input", (e) => {
+            // check validity 
             checkInputValidity(formElement, input, settings);
+            // toggle the button 
+            toggleButton(inputs, formElement, settings);
         });
     });
 };
