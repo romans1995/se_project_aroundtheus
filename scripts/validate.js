@@ -21,7 +21,7 @@ const hasValidInputs = (inputs) => {
     return inputs.every(input => input.validity.valid === true);
 }
 
-const toggleButton = (inputs, formElement, { errorClass }) => {
+const toggleButton = (inputs, formElement) => {
     const disabledButton = formElement.querySelector("button");
     if (hasValidInputs(inputs)) {
         disabledButton.removeAttribute("disabled");

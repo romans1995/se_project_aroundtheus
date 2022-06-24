@@ -36,6 +36,9 @@ const editModeName = document.querySelector(".profile__edit");
 const profileName = document.querySelector(".profile__description-name");
 const profileAbout = document.querySelector(".profile__description-prof");
 const allPopupCloseBtns = document.querySelectorAll(".popup__close-btn");
+
+const allpopups = document.querySelectorAll(".popup");
+const activePopup = document.querySelector(".popup__container");
 //end popup
 
 const addPlaceBtn = document.querySelector(".profile__add");
@@ -133,6 +136,16 @@ editPopupFormAddPlace.addEventListener("submit", handleAddPlaceSubmit);
 allPopupCloseBtns.forEach((button) => {
     const popup = button.closest('.popup');
     button.addEventListener('click', () => closePopUp(popup));
+});
+// project 6 
+// remove popup when clicks outside the popup
+allpopups.forEach(popup => {
+    const ActivePopup = popup.closest('.popup');
+    ActivePopup.addEventListener('click', (e) => {
+        if (!activePopup.contains(e.target)) {
+            closePopUp(popup);
+        }
+    });
 });
 
 //element
