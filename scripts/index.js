@@ -39,7 +39,8 @@ const allPopupCloseBtns = document.querySelectorAll(".popup__close-btn");
 
 const allpopups = document.querySelectorAll(".popup");
 const activePopup = document.querySelector(".popup__container");
-//end popup
+const submitBtn = document.querySelector(".popup__submit-button")
+    //end popup
 
 const addPlaceBtn = document.querySelector(".profile__add");
 const placeName = document.querySelector(".popup__inputs_type_placeName");
@@ -60,6 +61,7 @@ const editProfile = () => {
     openPopup(profilePopup);
     nameInput.value = profileName.textContent;
     aboutInput.value = profileAbout.textContent;
+    submitBtn.disabled = true;
 }
 
 const handleProfileEditSubmit = event => {
@@ -71,10 +73,13 @@ const handleProfileEditSubmit = event => {
 };
 const openCardPopup = () => {
     openPopup(cardPopupAdd);
+
+
 }
 
 const handleAddPlaceSubmit = event => {
     event.preventDefault();
+
     const newElement = {
         name: `${placeName.value}`,
         link: `${placeLink.value}`
@@ -86,6 +91,7 @@ const handleAddPlaceSubmit = event => {
 };
 
 const openPopup = (elem) => {
+    submitBtn.disabled = true;
     elem.classList.add("popup_active");
 
 }
@@ -142,8 +148,7 @@ allPopupCloseBtns.forEach((button) => {
 allpopups.forEach((popup) => {
     const className = popup.classList[1];
     const sectionpopup = document.querySelector(`.${className}`)
-    sectionpopup.addEventListener('keydown', e => {
-        console.log(e.key);
+    document.addEventListener('keydown', e => {
         if (e.key === "Escape") {
             closePopUp(sectionpopup);
         }
