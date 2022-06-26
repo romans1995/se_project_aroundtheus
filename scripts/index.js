@@ -139,13 +139,22 @@ allPopupCloseBtns.forEach((button) => {
 });
 // project 6 
 // remove popup when clicks outside the popup
-allpopups.forEach(popup => {
-    const ActivePopup = popup.closest('.popup');
-    ActivePopup.addEventListener('click', (e) => {
-        if (!activePopup.contains(e.target)) {
-            closePopUp(popup);
+allpopups.forEach((popup) => {
+    const className = popup.classList[1];
+    const sectionpopup = document.querySelector(`.${className}`)
+    sectionpopup.addEventListener('keydown', e => {
+        console.log(e.key);
+        if (e.key === "Escape") {
+            closePopUp(sectionpopup);
         }
     });
+    sectionpopup.addEventListener('click', (e) => {
+        let thisPopup = !sectionpopup.querySelector('.popup__container') ? sectionpopup.querySelector('.popup__image-prev-container') : sectionpopup.querySelector('.popup__container');
+        if (!thisPopup.contains(e.target)) {
+            closePopUp(sectionpopup);
+        }
+    });
+
 });
 
 //element
