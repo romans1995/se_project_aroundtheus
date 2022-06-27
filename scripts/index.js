@@ -146,9 +146,9 @@ allPopupCloseBtns.forEach((button) => {
 
 allpopups.forEach((popup) => {
     const className = popup.classList[1];
-    const sectionpopup = document.querySelector(`.${className}`);
+    const sectionPopup = document.querySelector(`.${className}`);
     // make sure when you open popup submit button is disabled 
-    const subBtn = sectionpopup.querySelector(".popup__submit-button");
+    const subBtn = sectionPopup.querySelector(".popup__submit-button");
     let btnArr = [];
     btnArr.push(subBtn);
     btnArr.forEach((btn) => {
@@ -159,16 +159,16 @@ allpopups.forEach((popup) => {
     // press esc to exit popup 
     document.addEventListener("keydown", (e) => {
         if (e.key === "Escape") {
-            closePopUp(sectionpopup);
+            closePopUp(sectionPopup);
         }
     });
     // remove popup when clicks outside the popup
-    sectionpopup.addEventListener("click", (e) => {
-        let thisPopup = !sectionpopup.querySelector(".popup__container") ?
-            sectionpopup.querySelector(".popup__image-prev-container") :
-            sectionpopup.querySelector(".popup__container");
+    sectionPopup.addEventListener("click", (e) => {
+        let thisPopup = !sectionPopup.querySelector(".popup__container") ?
+            sectionPopup.querySelector(".popup__image-prev-container") :
+            sectionPopup.querySelector(".popup__container");
         if (!thisPopup.contains(e.target)) {
-            closePopUp(sectionpopup);
+            closePopUp(sectionPopup);
         }
     });
 });
