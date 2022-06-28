@@ -117,7 +117,7 @@
         margin-bottom: 5px;
     }
     
-    .popup__inputs-container_div {
+    .popup__inputs-div {
         margin-bottom: 30px;
         display: flex;
         flex-direction: column;

@@ -26,7 +26,7 @@ const initialelements = [{
 
 // popup
 
-const nameInput = document.querySelector(".popup__inputs_type_name");
+const nameInput = document.querySelector(".popup__inputs_type-name");
 const aboutInput = document.querySelector(".popup__inputs_type_description");
 const profilePopup = document.querySelector(".profile-popup");
 const cardPopupAdd = document.querySelector(".popup-addElement");
