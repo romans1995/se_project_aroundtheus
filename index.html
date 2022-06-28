@@ -10,7 +10,6 @@
 </head>
 
 <body class="body">
-
     <header class="header">
         <img src="./images/logo.svg" alt="Logo" class="header__logo" />
     </header>
@@ -29,7 +28,6 @@
         </section>
         <div class="elements">
             <ul class="elements__list">
-
             </ul>
         </div>
     </main>
@@ -47,11 +45,11 @@
             <h3 class="popup__title">Edit profile</h3>
             <form class="popup__inputs-container" name="popup__inputs">
                 <div class="popup__inputs-div">
-                    <input id="name-input" name="popup__input-name" class="popup__input popup__inputs_type-name" type="text" placeholder="Name" value="Jacques Cousteau" minlength="2" maxlength="40" required>
+                    <input id="name-input" name="popup__input-name" class="popup__input popup__inputs-type-name" type="text" placeholder="Name" value="Jacques Cousteau" minlength="2" maxlength="40" required>
                     <span id="name-input-error" class="popup__input-error name-input-error"></span>
                 </div>
                 <div class="popup__inputs-div">
-                    <input id="description-input" name="popup__input-description" class=" popup__input popup__inputs_type_description " type="text" value="Explorer " placeholder="About me " minlength="2" maxlength="200" required>
+                    <input id="description-input" name="popup__input-description" class=" popup__input popup__inputs-type-description " type="text" value="Explorer " placeholder="About me " minlength="2" maxlength="200" required>
                     <span id="description-input-error" class="popup__input-error description-input-error"></span>
                 </div>
                 <button class="popup__submit-button " type="submit">Save</button>
@@ -64,11 +62,11 @@
             <h3 class="popup__title ">New place</h3>
             <form class="popup__inputs-container popup__inputs-container-addPlace " name="popup__addElement__inputs" novalidate>
                 <div class="popup__inputs-div">
-                    <input id="placeName-input" name="placeName" class="popup__input popup__inputs_type_placeName " type="text" placeholder="Title " minlength="1" maxlength="30" required>
+                    <input id="placeName-input" name="placeName" class="popup__input popup__inputs-type-placeName " type="text" placeholder="Title " minlength="1" maxlength="30" required>
                     <span id="placeName-input-error" class="popup__input-error name-input-error"></span>
                 </div>
                 <div class="popup__inputs-div">
-                    <input id="placeLink-input" name="placeLink" class="popup__input popup__inputs_type_placeLink" type="url" placeholder="Image url" required>
+                    <input id="placeLink-input" name="placeLink" class="popup__input popup__inputs-type-placeLink" type="url" placeholder="Image url" required>
                     <span id="placeLink-input-error" class="popup__input-error placeLink-input-error "></span>
                 </div>
                 <button class="popup__submit-button popup__submit-button-addPlace " type="submit">Create</button>

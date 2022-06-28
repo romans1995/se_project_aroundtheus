@@ -26,8 +26,8 @@ const initialelements = [{
 
 // popup
 
-const nameInput = document.querySelector(".popup__inputs_type-name");
-const aboutInput = document.querySelector(".popup__inputs_type_description");
+const nameInput = document.querySelector(".popup__inputs-type-name");
+const aboutInput = document.querySelector(".popup__inputs-type-description");
 const profilePopup = document.querySelector(".profile-popup");
 const cardPopupAdd = document.querySelector(".popup-addElement");
 const editPopupForm = document.querySelector(".popup__inputs-container");
@@ -45,8 +45,8 @@ const submitBtn = document.querySelector(".popup__submit-button");
 //end popup
 
 const addPlaceBtn = document.querySelector(".profile__add");
-const placeName = document.querySelector(".popup__inputs_type_placeName");
-const placeLink = document.querySelector(".popup__inputs_type_placeLink");
+const placeName = document.querySelector(".popup__inputs-type-placeName");
+const placeLink = document.querySelector(".popup__inputs-type-placeLink");
 
 //elements
 const elements = document.querySelector(".elements");
