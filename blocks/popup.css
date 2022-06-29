@@ -92,7 +92,7 @@
         line-height: 22px;
     }
     
-    .popup__submit-button:hover {
+    .popup__submit-button:hover:not(:disabled) {
         cursor: pointer;
         opacity: 0.8;
         transition: 0.3s;
@@ -103,6 +103,7 @@
         color: #000000;
         border: 1px solid #000000;
         opacity: 0.2;
+        cursor: not-allowed;
     }
     
     .popup__input {

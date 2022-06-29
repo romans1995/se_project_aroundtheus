@@ -1,4 +1,4 @@
-const initialelements = [{
+const initialElements = [{
         name: "Yosemite Valley",
         link: "https://code.s3.yandex.net/web-code/yosemite.jpg",
     },
@@ -34,12 +34,14 @@ const editPopupForm = document.querySelector(".popup__inputs-container");
 const editPopupFormAddPlace = document.querySelector(
     ".popup__inputs-container-addPlace"
 );
+
+
 const editModeName = document.querySelector(".profile__edit");
 const profileName = document.querySelector(".profile__description-name");
 const profileAbout = document.querySelector(".profile__description-prof");
 const allPopupCloseBtns = document.querySelectorAll(".popup__close-btn");
 
-const allpopups = document.querySelectorAll(".popup");
+const allPopups = document.querySelectorAll(".popup");
 const activePopup = document.querySelector(".popup__container");
 const submitBtn = document.querySelector(".popup__submit-button");
 //end popup
@@ -49,22 +51,25 @@ const placeName = document.querySelector(".popup__inputs-type-placeName");
 const placeLink = document.querySelector(".popup__inputs-type-placeLink");
 
 //elements
+const elementStracture = document.querySelector(".element-Stracture").content;
 const elements = document.querySelector(".elements");
 const elementList = elements.querySelector(".elements__list");
 //image preview
 
-const imgPrevModal = document.querySelector(".popup_image-prev");
-const popupImage = imgPrevModal.querySelector(".popup__image");
-const popupCaption = imgPrevModal.querySelector(".popup__caption");
+const imgPreviewModal = document.querySelector(".popup_image-prev");
+const popupImage = imgPreviewModal.querySelector(".popup__image");
+const popupCaption = imgPreviewModal.querySelector(".popup__caption");
 
 //popup functions
 
 const editProfile = () => {
     openPopup(profilePopup);
-    nameInput.value = profileName.textContent;
-    aboutInput.value = profileAbout.textContent;
-    // submitBtn.disabled = true;
+    fillProfileForm(nameInput.value, profileName.textContent);
+    fillProfileForm(aboutInput.value, profileAbout.textContent);
 };
+const fillProfileForm = (val, text) => {
+    val = text
+}
 
 const handleProfileEditSubmit = (event) => {
     event.preventDefault();
@@ -79,14 +84,14 @@ const openCardPopup = () => {
 const handleAddPlaceSubmit = (event) => {
     event.preventDefault();
 
+    console.log(enableValidation(editPopupFormAddPlace));
     const newElement = {
         name: `${placeName.value}`,
         link: `${placeLink.value}`,
     };
     closePopUp(cardPopupAdd);
     prependCard(newElement, elementList);
-    placeName.value = "";
-    placeLink.value = "";
+    editPopupFormAddPlace.reset();
 };
 
 const openPopup = (elem) => {
@@ -98,8 +103,9 @@ const closePopUp = (elem) => {
 };
 
 //elements functions
+// @func 
+
 const addElement = (data) => {
-    const elementStracture = document.querySelector(".element-Stracture").content;
     const elementElement = elementStracture
         .querySelector(".element")
         .cloneNode(true);
@@ -129,10 +135,11 @@ const previewImage = (element) => {
     popupImage.src = element.link;
     popupImage.alt = `A beautiful place in ${element.name}`;
     popupCaption.textContent = element.name;
-    openPopup(imgPrevModal);
+    openPopup(imgPreviewModal);
 };
 
 //popup eventsListeners
+// @listens
 
 editModeName.addEventListener("click", editProfile);
 addPlaceBtn.addEventListener("click", openCardPopup);
@@ -144,7 +151,7 @@ allPopupCloseBtns.forEach((button) => {
 });
 // project 6
 
-allpopups.forEach((popup) => {
+allPopups.forEach((popup) => {
     const className = popup.classList[1];
     const sectionPopup = document.querySelector(`.${className}`);
     // make sure when you open popup submit button is disabled 
@@ -174,4 +181,4 @@ allpopups.forEach((popup) => {
 });
 
 //element
-initialelements.forEach((element) => prependCard(element, elementList));
+initialElements.forEach((element) => prependCard(element, elementList));
