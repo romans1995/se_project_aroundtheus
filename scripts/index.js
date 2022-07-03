@@ -83,19 +83,32 @@ const openCardPopup = () => {
 
 const handleAddPlaceSubmit = (event) => {
     event.preventDefault();
-
-    console.log(enableValidation(editPopupFormAddPlace));
     const newElement = {
         name: `${placeName.value}`,
         link: `${placeLink.value}`,
     };
     closePopUp(cardPopupAdd);
+   
     prependCard(newElement, elementList);
     editPopupFormAddPlace.reset();
+    const inputs = [...editPopupForm.querySelectorAll(".popup__input")];
+    toggleButton(inputs,editPopupForm);
 };
 
 const openPopup = (elem) => {
     elem.classList.add("popup_active");
+    const className =  elem.classList[2];
+    // console.log(className);
+    const sectionPopup = document.querySelector(`.${className}`);
+    // make sure when you open popup submit button is disabled 
+    const subBtn = sectionPopup.querySelector(".popup__submit-button");
+    let btnArr = [];
+    btnArr.push(subBtn);
+    btnArr.forEach((btn) => {
+        if (btn !== null) {
+            btn.disabled = true;
+        }
+    });
 };
 
 const closePopUp = (elem) => {
@@ -154,16 +167,7 @@ allPopupCloseBtns.forEach((button) => {
 allPopups.forEach((popup) => {
     const className = popup.classList[1];
     const sectionPopup = document.querySelector(`.${className}`);
-    // make sure when you open popup submit button is disabled 
-    const subBtn = sectionPopup.querySelector(".popup__submit-button");
-    let btnArr = [];
-    btnArr.push(subBtn);
-    btnArr.forEach((btn) => {
-        if (btn !== null) {
-            btn.disabled = true;
-        }
-    });
-    // press esc to exit popup 
+ 
     document.addEventListener("keydown", (e) => {
         if (e.key === "Escape") {
             closePopUp(sectionPopup);
