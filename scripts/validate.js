@@ -22,7 +22,7 @@ const isFormValid = (inputs) => {
 }
 
 const toggleButton = (inputs, formElement) => {
-    const button = formElement.querySelector("button");
+    const button = formElement.querySelector(".popup__submit-button");
     if (isFormValid(inputs)) {
         button.removeAttribute("disabled");
     } else {

@@ -91,24 +91,15 @@ const handleAddPlaceSubmit = (event) => {
    
     prependCard(newElement, elementList);
     editPopupFormAddPlace.reset();
-    const inputs = [...editPopupForm.querySelectorAll(".popup__input")];
-    toggleButton(inputs,editPopupForm);
 };
 
 const openPopup = (elem) => {
     elem.classList.add("popup_active");
     const className =  elem.classList[2];
-    // console.log(className);
     const sectionPopup = document.querySelector(`.${className}`);
     // make sure when you open popup submit button is disabled 
-    const subBtn = sectionPopup.querySelector(".popup__submit-button");
-    let btnArr = [];
-    btnArr.push(subBtn);
-    btnArr.forEach((btn) => {
-        if (btn !== null) {
-            btn.disabled = true;
-        }
-    });
+    const inputs = [...sectionPopup.querySelectorAll(".popup__input")];
+    toggleButton(inputs,sectionPopup);
 };
 
 const closePopUp = (elem) => {
