@@ -22,6 +22,7 @@ const isFormValid = (inputs) => {
 }
 
 const toggleButton = (inputs, formElement) => {
+    
     const button = formElement.querySelector(".popup__submit-button");
     if (isFormValid(inputs)) {
         button.removeAttribute("disabled");
@@ -32,6 +33,7 @@ const toggleButton = (inputs, formElement) => {
 }
 const setEventListeners = (formElement, settings) => {
     const inputs = [...formElement.querySelectorAll(settings.inputSelector)];
+    toggleButton(inputs, formElement, settings); 
     inputs.forEach((input) => {
         input.addEventListener("input", (e) => {
             // check validity 

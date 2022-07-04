@@ -88,7 +88,6 @@ const handleAddPlaceSubmit = (event) => {
         link: `${placeLink.value}`,
     };
     closePopUp(cardPopupAdd);
-   
     prependCard(newElement, elementList);
     editPopupFormAddPlace.reset();
 };
@@ -97,14 +96,23 @@ const openPopup = (elem) => {
     elem.classList.add("popup_active");
     const className =  elem.classList[2];
     const sectionPopup = document.querySelector(`.${className}`);
+   if(!sectionPopup.classList.contains("popup_image-prev")){
     // make sure when you open popup submit button is disabled 
     const inputs = [...sectionPopup.querySelectorAll(".popup__input")];
     toggleButton(inputs,sectionPopup);
+   }
+   document.addEventListener("keydown", closePopupByEscape);
+   sectionPopup.addEventListener("mousedown", closePopupOnRemoteClick);
 };
 
 const closePopUp = (elem) => {
     elem.classList.remove("popup_active");
+    document.removeEventListener("keydown", closePopupByEscape)
+    activePopup.removeEventListener("mousedown", closePopupOnRemoteClick);
 };
+ 
+
+
 
 //elements functions
 // @func 
@@ -153,27 +161,24 @@ allPopupCloseBtns.forEach((button) => {
     const popup = button.closest(".popup");
     button.addEventListener("click", () => closePopUp(popup));
 });
-// project 6
+// project 6 functions
+function closePopupByEscape(event) {
+    if (event.key === "Escape") {
+       // search for an opened popup
+      const openedPopup = document.querySelector(".popup_active");
+       // close it
+       closePopUp(openedPopup)
+    }
+  } 
 
-allPopups.forEach((popup) => {
-    const className = popup.classList[1];
-    const sectionPopup = document.querySelector(`.${className}`);
- 
-    document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-            closePopUp(sectionPopup);
-        }
-    });
-    // remove popup when clicks outside the popup
-    sectionPopup.addEventListener("click", (e) => {
-        let thisPopup = !sectionPopup.querySelector(".popup__container") ?
-            sectionPopup.querySelector(".popup__image-prev-container") :
-            sectionPopup.querySelector(".popup__container");
-        if (!thisPopup.contains(e.target)) {
-            closePopUp(sectionPopup);
-        }
-    });
-});
+function closePopupOnRemoteClick(event) {
+    // target is the element on which the event happened
+    // currentTarget is the popup
+    // if they are the same then we should close the popup
+    if (event.target === event.currentTarget) { 
+        closePopUp(event.target);
+    }
+  }
 
 //element
 initialElements.forEach((element) => prependCard(element, elementList));
