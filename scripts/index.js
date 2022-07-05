@@ -64,11 +64,11 @@ const popupCaption = imgPreviewModal.querySelector(".popup__caption");
 
 const editProfile = () => {
     openPopup(profilePopup);
-    fillProfileForm(nameInput.value, profileName.textContent);
-    fillProfileForm(aboutInput.value, profileAbout.textContent);
+    fillProfileForm();
 };
-const fillProfileForm = (val, text) => {
-    val = text
+const fillProfileForm = () => {
+    nameInput.value = profileName.textContent;
+  aboutInput.value = profileAbout.textContent;
 }
 
 const handleProfileEditSubmit = (event) => {
