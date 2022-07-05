@@ -1,28 +1,27 @@
-const initialElements = [
-  {
-    name: "Yosemite Valley",
-    link: "https://code.s3.yandex.net/web-code/yosemite.jpg",
-  },
-  {
-    name: "Lake Louise",
-    link: "https://code.s3.yandex.net/web-code/lake-louise.jpg",
-  },
-  {
-    name: "Bald Mountains",
-    link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://code.s3.yandex.net/web-code/latemar.jpg",
-  },
-  {
-    name: "Vanoise National Park",
-    link: "https://code.s3.yandex.net/web-code/vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://code.s3.yandex.net/web-code/lago.jpg",
-  },
+const initialElements = [{
+        name: "Yosemite Valley",
+        link: "https://code.s3.yandex.net/web-code/yosemite.jpg",
+    },
+    {
+        name: "Lake Louise",
+        link: "https://code.s3.yandex.net/web-code/lake-louise.jpg",
+    },
+    {
+        name: "Bald Mountains",
+        link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg",
+    },
+    {
+        name: "Latemar",
+        link: "https://code.s3.yandex.net/web-code/latemar.jpg",
+    },
+    {
+        name: "Vanoise National Park",
+        link: "https://code.s3.yandex.net/web-code/vanoise.jpg",
+    },
+    {
+        name: "Lago di Braies",
+        link: "https://code.s3.yandex.net/web-code/lago.jpg",
+    },
 ];
 
 // popup
@@ -33,7 +32,7 @@ const profilePopup = document.querySelector(".profile-popup");
 const cardPopupAdd = document.querySelector(".popup-addElement");
 const editPopupForm = document.querySelector(".popup__inputs-container");
 const editPopupFormAddPlace = document.querySelector(
-  ".popup__inputs-container-addPlace"
+    ".popup__inputs-container-addPlace"
 );
 
 const editModeName = document.querySelector(".profile__edit");
@@ -42,7 +41,6 @@ const profileAbout = document.querySelector(".profile__description-prof");
 const allPopupCloseBtns = document.querySelectorAll(".popup__close-btn");
 
 const allPopups = document.querySelectorAll(".popup");
-const activePopup = document.querySelector(".popup__container");
 const submitBtn = document.querySelector(".popup__submit-button");
 //end popup
 
@@ -63,83 +61,83 @@ const popupCaption = imgPreviewModal.querySelector(".popup__caption");
 //popup functions
 
 const editProfile = () => {
-  openPopup(profilePopup);
-  fillProfileForm();
+    openPopup(profilePopup);
+    fillProfileForm();
 };
 const fillProfileForm = () => {
-  nameInput.value = profileName.textContent;
-  aboutInput.value = profileAbout.textContent;
+    nameInput.value = profileName.textContent;
+    aboutInput.value = profileAbout.textContent;
 };
 
 const handleProfileEditSubmit = (event) => {
-  event.preventDefault();
-  profileName.textContent = nameInput.value;
-  profileAbout.textContent = aboutInput.value;
-  closePopup(profilePopup);
+    event.preventDefault();
+    profileName.textContent = nameInput.value;
+    profileAbout.textContent = aboutInput.value;
+    closePopup(profilePopup);
 };
 const openCardPopup = () => {
-  openPopup(cardPopupAdd);
+    openPopup(cardPopupAdd);
 };
 
 const handleAddPlaceSubmit = (event) => {
-  event.preventDefault();
-  const newElement = {
-    name: `${placeName.value}`,
-    link: `${placeLink.value}`,
-  };
-  closePopup(cardPopupAdd);
-  prependCard(newElement, elementList);
-  editPopupFormAddPlace.reset();
-  const inputs = [...cardPopupAdd.querySelectorAll(".popup__input")];
-  toggleButton(inputs, cardPopupAdd);
+    event.preventDefault();
+    const newElement = {
+        name: `${placeName.value}`,
+        link: `${placeLink.value}`,
+    };
+    closePopup(cardPopupAdd);
+    prependCard(newElement, elementList);
+    editPopupFormAddPlace.reset();
+    const inputs = [...cardPopupAdd.querySelectorAll(".popup__input")];
+    toggleButton(inputs, cardPopupAdd);
 };
 
 const openPopup = (elem) => {
-  elem.classList.add("popup_active");
-  document.addEventListener("keydown", closePopupByEscape);
-  elem.addEventListener("mousedown", closePopupOnRemoteClick);
+    elem.classList.add("popup_active");
+    document.addEventListener("keydown", closePopupByEscape);
+    elem.addEventListener("mousedown", closePopupOnRemoteClick);
 };
 
 const closePopup = (elem) => {
-  elem.classList.remove("popup_active");
-  document.removeEventListener("keydown", closePopupByEscape);
-  activePopup.removeEventListener("mousedown", closePopupOnRemoteClick);
+    elem.classList.remove("popup_active");
+    document.removeEventListener("keydown", closePopupByEscape);
+    elem.removeEventListener("mousedown", closePopupOnRemoteClick);
 };
 
 //elements functions
 // @func
 
 const addElement = (data) => {
-  const elementElement = elementStracture
-    .querySelector(".element")
-    .cloneNode(true);
-  const elementTitleElement = elementElement.querySelector(".element__title");
-  elementTitleElement.textContent = data.name;
-  const likeBtn = elementElement.querySelector(".element__like-button");
-  const elementImage = elementElement.querySelector(".element__image");
-  elementImage.src = data.link;
-  elementImage.alt = `picture of a ${data.name}`;
-  const deleteBtn = elementElement.querySelector(".element__delete-button");
-  //eventListeners
-  elementImage.addEventListener("click", () => previewImage(data));
-  deleteBtn.addEventListener("click", () => elementElement.remove());
-  likeBtn.addEventListener("click", () =>
-    toggleClass(likeBtn, "element__like-button_active")
-  );
-  return elementElement;
+    const elementElement = elementStracture
+        .querySelector(".element")
+        .cloneNode(true);
+    const elementTitleElement = elementElement.querySelector(".element__title");
+    elementTitleElement.textContent = data.name;
+    const likeBtn = elementElement.querySelector(".element__like-button");
+    const elementImage = elementElement.querySelector(".element__image");
+    elementImage.src = data.link;
+    elementImage.alt = `picture of a ${data.name}`;
+    const deleteBtn = elementElement.querySelector(".element__delete-button");
+    //eventListeners
+    elementImage.addEventListener("click", () => previewImage(data));
+    deleteBtn.addEventListener("click", () => elementElement.remove());
+    likeBtn.addEventListener("click", () =>
+        toggleClass(likeBtn, "element__like-button_active")
+    );
+    return elementElement;
 };
 const prependCard = (element, list) => {
-  list.prepend(addElement(element));
+    list.prepend(addElement(element));
 };
 const toggleClass = (component, add) => {
-  component.classList.toggle(add);
+    component.classList.toggle(add);
 };
 
 const previewImage = (element) => {
-  popupImage.src = element.link;
-  popupImage.alt = `A beautiful place in ${element.name}`;
-  popupCaption.textContent = element.name;
-  openPopup(imgPreviewModal);
+    popupImage.src = element.link;
+    popupImage.alt = `A beautiful place in ${element.name}`;
+    popupCaption.textContent = element.name;
+    openPopup(imgPreviewModal);
 };
 
 //popup eventsListeners
@@ -150,26 +148,26 @@ addPlaceBtn.addEventListener("click", openCardPopup);
 editPopupForm.addEventListener("submit", handleProfileEditSubmit);
 editPopupFormAddPlace.addEventListener("submit", handleAddPlaceSubmit);
 allPopupCloseBtns.forEach((button) => {
-  const popup = button.closest(".popup");
-  button.addEventListener("click", () => closePopup(popup));
+    const popup = button.closest(".popup");
+    button.addEventListener("click", () => closePopup(popup));
 });
 // project 6 functions
 function closePopupByEscape(event) {
-  if (event.key === "Escape") {
-    // search for an opened popup
-    const openedPopup = document.querySelector(".popup_active");
-    // close it
-    closePopup(openedPopup);
-  }
+    if (event.key === "Escape") {
+        // search for an opened popup
+        const openedPopup = document.querySelector(".popup_active");
+        // close it
+        closePopup(openedPopup);
+    }
 }
 
 function closePopupOnRemoteClick(event) {
-  // target is the element on which the event happened
-  // currentTarget is the popup
-  // if they are the same then we should close the popup
-  if (event.target === event.currentTarget) {
-    closePopup(event.target);
-  }
+    // target is the element on which the event happened
+    // currentTarget is the popup
+    // if they are the same then we should close the popup
+    if (event.target === event.currentTarget) {
+        closePopup(event.target);
+    }
 }
 
 //element
