@@ -1,4 +1,4 @@
-# Project 6: Around The U.S.
+# Project 7: Around The U.S.
 
 ## project name :Around The U.S.
 
@@ -18,6 +18,7 @@
 <p>in this project you can edit the name of the person </p>
 <p>the validation will make sure you enter everything correctly </p>
 <p>And you can like pictures </p>
+<p>OOP </p>
 
 **Figma**
 
