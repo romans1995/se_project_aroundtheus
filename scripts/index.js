@@ -1,27 +1,32 @@
-const initialElements = [{
-        name: "Yosemite Valley",
-        link: "https://code.s3.yandex.net/web-code/yosemite.jpg",
-    },
-    {
-        name: "Lake Louise",
-        link: "https://code.s3.yandex.net/web-code/lake-louise.jpg",
-    },
-    {
-        name: "Bald Mountains",
-        link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg",
-    },
-    {
-        name: "Latemar",
-        link: "https://code.s3.yandex.net/web-code/latemar.jpg",
-    },
-    {
-        name: "Vanoise National Park",
-        link: "https://code.s3.yandex.net/web-code/vanoise.jpg",
-    },
-    {
-        name: "Lago di Braies",
-        link: "https://code.s3.yandex.net/web-code/lago.jpg",
-    },
+import FormValidator from "./FormValidator.js";
+import Card from "./Card.js";
+import { openPopup, closePopup } from "./utils.js";
+
+const initialElements = [
+  {
+    name: "Yosemite Valley",
+    link: "https://code.s3.yandex.net/web-code/yosemite.jpg",
+  },
+  {
+    name: "Lake Louise",
+    link: "https://code.s3.yandex.net/web-code/lake-louise.jpg",
+  },
+  {
+    name: "Bald Mountains",
+    link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg",
+  },
+  {
+    name: "Latemar",
+    link: "https://code.s3.yandex.net/web-code/latemar.jpg",
+  },
+  {
+    name: "Vanoise National Park",
+    link: "https://code.s3.yandex.net/web-code/vanoise.jpg",
+  },
+  {
+    name: "Lago di Braies",
+    link: "https://code.s3.yandex.net/web-code/lago.jpg",
+  },
 ];
 
 // popup
@@ -32,7 +37,7 @@ const profilePopup = document.querySelector(".profile-popup");
 const cardPopupAdd = document.querySelector(".popup-addElement");
 const editPopupForm = document.querySelector(".popup__inputs-container");
 const editPopupFormAddPlace = document.querySelector(
-    ".popup__inputs-container-addPlace"
+  ".popup__inputs-container-addPlace"
 );
 
 const editModeName = document.querySelector(".profile__edit");
@@ -50,94 +55,90 @@ const placeLink = document.querySelector(".popup__inputs-type-placeLink");
 
 //elements
 const elementStracture = document.querySelector(".element-Stracture").content;
+const cardSelector = ".element-Stracture";
 const elements = document.querySelector(".elements");
 const elementList = elements.querySelector(".elements__list");
 //image preview
 
-const imgPreviewModal = document.querySelector(".popup_image-prev");
-const popupImage = imgPreviewModal.querySelector(".popup__image");
-const popupCaption = imgPreviewModal.querySelector(".popup__caption");
-
 //popup functions
 
 const editProfile = () => {
-    openPopup(profilePopup);
-    fillProfileForm();
+  editFormValidator.enableValidation();
+  openPopup(profilePopup);
+  fillProfileForm();
 };
 const fillProfileForm = () => {
-    nameInput.value = profileName.textContent;
-    aboutInput.value = profileAbout.textContent;
+  nameInput.value = profileName.textContent;
+  aboutInput.value = profileAbout.textContent;
 };
 
 const handleProfileEditSubmit = (event) => {
-    event.preventDefault();
-    profileName.textContent = nameInput.value;
-    profileAbout.textContent = aboutInput.value;
-    closePopup(profilePopup);
+  event.preventDefault();
+  profileName.textContent = nameInput.value;
+  profileAbout.textContent = aboutInput.value;
+  closePopup(profilePopup);
 };
 const openCardPopup = () => {
-    openPopup(cardPopupAdd);
+  addFormValidator.enableValidation();
+  openPopup(cardPopupAdd);
 };
 
 const handleAddPlaceSubmit = (event) => {
-    event.preventDefault();
-    const newElement = {
-        name: `${placeName.value}`,
-        link: `${placeLink.value}`,
-    };
-    closePopup(cardPopupAdd);
-    prependCard(newElement, elementList);
-    editPopupFormAddPlace.reset();
-    const inputs = [...cardPopupAdd.querySelectorAll(".popup__input")];
-    toggleButton(inputs, cardPopupAdd);
+  event.preventDefault();
+  const newElement = {
+    name: `${placeName.value}`,
+    link: `${placeLink.value}`,
+  };
+  closePopup(cardPopupAdd);
+  prependCard(newElement, elementList);
+  editPopupFormAddPlace.reset();
+  const inputs = [...cardPopupAdd.querySelectorAll(".popup__input")];
+  addFormValidator.toggleButton(inputs, cardPopupAdd);
 };
 
-const openPopup = (elem) => {
-    elem.classList.add("popup_active");
-    document.addEventListener("keydown", closePopupByEscape);
-    elem.addEventListener("mousedown", closePopupOnRemoteClick);
+const validationSettings = {
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__submit-button",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input-error",
+  errorClass: "popup__error_visible",
 };
 
-const closePopup = (elem) => {
-    elem.classList.remove("popup_active");
-    document.removeEventListener("keydown", closePopupByEscape);
-    elem.removeEventListener("mousedown", closePopupOnRemoteClick);
-};
+const editFormValidator = new FormValidator(validationSettings, editPopupForm);
+const addFormValidator = new FormValidator(
+  validationSettings,
+  editPopupFormAddPlace
+);
 
+// addFormValidator.enableValidation();
 //elements functions
 // @func
 
 const addElement = (data) => {
-    const elementElement = elementStracture
-        .querySelector(".element")
-        .cloneNode(true);
-    const elementTitleElement = elementElement.querySelector(".element__title");
-    elementTitleElement.textContent = data.name;
-    const likeBtn = elementElement.querySelector(".element__like-button");
-    const elementImage = elementElement.querySelector(".element__image");
-    elementImage.src = data.link;
-    elementImage.alt = `picture of a ${data.name}`;
-    const deleteBtn = elementElement.querySelector(".element__delete-button");
-    //eventListeners
-    elementImage.addEventListener("click", () => previewImage(data));
-    deleteBtn.addEventListener("click", () => elementElement.remove());
-    likeBtn.addEventListener("click", () =>
-        toggleClass(likeBtn, "element__like-button_active")
-    );
-    return elementElement;
+  const elementElement = elementStracture
+    .querySelector(".element")
+    .cloneNode(true);
+  const elementTitleElement = elementElement.querySelector(".element__title");
+  elementTitleElement.textContent = data.name;
+  const likeBtn = elementElement.querySelector(".element__like-button");
+  const elementImage = elementElement.querySelector(".element__image");
+  elementImage.src = data.link;
+  elementImage.alt = `picture of a ${data.name}`;
+  const deleteBtn = elementElement.querySelector(".element__delete-button");
+  //eventListeners
+  elementImage.addEventListener("click", () => previewImage(data));
+  deleteBtn.addEventListener("click", () => elementElement.remove());
+  likeBtn.addEventListener("click", () =>
+    toggleClass(likeBtn, "element__like-button_active")
+  );
+  return elementElement;
 };
 const prependCard = (element, list) => {
-    list.prepend(addElement(element));
+  const card = new Card(element, cardSelector).addElment();
+  list.prepend(card);
 };
 const toggleClass = (component, add) => {
-    component.classList.toggle(add);
-};
-
-const previewImage = (element) => {
-    popupImage.src = element.link;
-    popupImage.alt = `A beautiful place in ${element.name}`;
-    popupCaption.textContent = element.name;
-    openPopup(imgPreviewModal);
+  component.classList.toggle(add);
 };
 
 //popup eventsListeners
@@ -148,27 +149,9 @@ addPlaceBtn.addEventListener("click", openCardPopup);
 editPopupForm.addEventListener("submit", handleProfileEditSubmit);
 editPopupFormAddPlace.addEventListener("submit", handleAddPlaceSubmit);
 allPopupCloseBtns.forEach((button) => {
-    const popup = button.closest(".popup");
-    button.addEventListener("click", () => closePopup(popup));
+  const popup = button.closest(".popup");
+  button.addEventListener("click", () => closePopup(popup));
 });
-// project 6 functions
-function closePopupByEscape(event) {
-    if (event.key === "Escape") {
-        // search for an opened popup
-        const openedPopup = document.querySelector(".popup_active");
-        // close it
-        closePopup(openedPopup);
-    }
-}
-
-function closePopupOnRemoteClick(event) {
-    // target is the element on which the event happened
-    // currentTarget is the popup
-    // if they are the same then we should close the popup
-    if (event.target === event.currentTarget) {
-        closePopup(event.target);
-    }
-}
 
 //element
 initialElements.forEach((element) => prependCard(element, elementList));
