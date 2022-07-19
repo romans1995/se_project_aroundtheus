@@ -1,12 +1,9 @@
 import {previewImage} from "./utils.js"
 class Card {
     constructor(data, cardSelector) {
-        
         this._element = data;
         this._name = data.name;
         this._link = data.link;
-        
-
         this._cardSelector = cardSelector;
        
     }
@@ -29,8 +26,9 @@ class Card {
           });
     }
         _toggleClass (evt) {
-       evt.target.classList.toggle(".element__like-button_active");
-    };
+       evt.target.classList.toggle("element__like-button_active");
+    }
+    
     _handlerElemntElmentRemove() {}
    
         addElment(){

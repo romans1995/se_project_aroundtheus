@@ -15,7 +15,7 @@ export const openPopup = (elem) => {
     elem.addEventListener("mousedown", closePopupOnRemoteClick);
 };
 
-export function closePopupByEscape(event) {
+ function closePopupByEscape(event) {
     if (event.key === "Escape") {
         // search for an opened popup
         const openedPopup = document.querySelector(".popup_active");
