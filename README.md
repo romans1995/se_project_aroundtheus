@@ -14,7 +14,7 @@
 
 # description
 
-<p>In this project I did some html and Css design for the 6 project via figma</p>
+<p>In this project I did some html and Css design for the 7 project via figma</p>
 <p>in this project you can edit the name of the person </p>
 <p>the validation will make sure you enter everything correctly </p>
 <p>And you can like pictures </p>
