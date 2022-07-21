@@ -10,26 +10,26 @@ class Card {
     _getTemplate() {
         const cardElement = document.querySelector(this._cardSelector).content.querySelector(".element").cloneNode(true);
         return cardElement;
+        console.log(cardElement);
     }
     _seteventListeners() {
         this._element.addEventListener("click", (evt) => {
-            if (evt.target === this._likeBtn) {
-              this._toggleClass(evt);
-            }
-            if (evt.target === this._deleteBtn) {
-              
-              evt.currentTarget.remove();
-            }
             if (evt.target === this._elementImage) {
                 previewImage(this._link, this._name);
             }
           });
+          this._likeBtn.addEventListener("click", (evt)=>{this._toggleLike(evt)});
+          this._deleteBtn.addEventListener("click", (evt)=>{this._handleElmentRemove(evt)});
     }
-        _toggleClass (evt) {
+
+        _toggleLike (evt) {
        evt.target.classList.toggle("element__like-button_active");
     }
     
-    _handlerElemntElmentRemove() {}
+    _handleElmentRemove(evt) {
+        console.log( evt.currentTarget);
+        evt.currentTarget.remove();
+    }
    
         addElment(){
         this._element = this._getTemplate();
@@ -42,20 +42,5 @@ class Card {
         this._seteventListeners();
         return this._element;
         }
-        // const elementTitleElement = elementElement.querySelector(".element__title");
-        // elementTitleElement.textContent = data.name;
-        // const likeBtn = elementElement.querySelector(".element__like-button");
-        // const elementImage = elementElement.querySelector(".element__image");
-        // elementImage.src = data.link;
-        // elementImage.alt = `picture of a ${data.name}`;
-        // const deleteBtn = elementElement.querySelector(".element__delete-button");
-        // //eventListeners
-        // elementImage.addEventListener("click", () => previewImage(data));
-        // deleteBtn.addEventListener("click", () => elementElement.remove());
-        // likeBtn.addEventListener("click", () =>
-        //     toggleClass(likeBtn, "element__like-button_active")
-        // );
-        // return elementElement;
-
 }
 export default Card;
