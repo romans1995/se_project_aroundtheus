@@ -92,8 +92,7 @@ const handleAddPlaceSubmit = (event) => {
   closePopup(cardPopupAdd);
   prependCard(newElement, elementList);
   editPopupFormAddPlace.reset();
-  const inputs = [...cardPopupAdd.querySelectorAll(".popup__input")];
-  addFormValidator.toggleButton(inputs, cardPopupAdd);
+  addFormValidator.toggleButton();
 };
 
 const validationSettings = {
@@ -110,7 +109,7 @@ const addFormValidator = new FormValidator(
   editPopupFormAddPlace
 );
 
-// addFormValidator.enableValidation();
+
 //elements functions
 // @func
 

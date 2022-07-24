@@ -10,7 +10,6 @@ class Card {
     _getTemplate() {
         const cardElement = document.querySelector(this._cardSelector).content.querySelector(".element").cloneNode(true);
         return cardElement;
-        console.log(cardElement);
     }
     _seteventListeners() {
         this._element.addEventListener("click", (evt) => {
@@ -26,9 +25,8 @@ class Card {
        evt.target.classList.toggle("element__like-button_active");
     }
     
-    _handleElmentRemove(evt) {
-        console.log( evt.currentTarget);
-        evt.currentTarget.remove();
+    _handleElmentRemove() {
+        this._element.remove();
     }
    
         addElment(){
