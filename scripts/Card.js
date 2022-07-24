@@ -12,11 +12,7 @@ class Card {
         return cardElement;
     }
     _seteventListeners() {
-        this._element.addEventListener("click", (evt) => {
-            if (evt.target === this._elementImage) {
-                previewImage(this._link, this._name);
-            }
-          });
+          this._elementImage.addEventListener("click", ()=>{previewImage(this._link, this._name)});
           this._likeBtn.addEventListener("click", (evt)=>{this._toggleLike(evt)});
           this._deleteBtn.addEventListener("click", (evt)=>{this._handleElmentRemove(evt)});
     }
