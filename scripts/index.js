@@ -63,7 +63,7 @@ const elementList = elements.querySelector(".elements__list");
 //popup functions
 
 const editProfile = () => {
-  editFormValidator.enableValidation();
+  // editFormValidator.enableValidation();
   openPopup(profilePopup);
   fillProfileForm();
 };
@@ -79,7 +79,7 @@ const handleProfileEditSubmit = (event) => {
   closePopup(profilePopup);
 };
 const openCardPopup = () => {
-  addFormValidator.enableValidation();
+  // addFormValidator.enableValidation();
   openPopup(cardPopupAdd);
 };
 
@@ -92,7 +92,8 @@ const handleAddPlaceSubmit = (event) => {
   closePopup(cardPopupAdd);
   prependCard(newElement, elementList);
   editPopupFormAddPlace.reset();
-  addFormValidator.toggleButton();
+  const inputs = [...cardPopupAdd.querySelectorAll(".popup__input")];
+  addFormValidator.toggleButton(inputs, cardPopupAdd);
 };
 
 const validationSettings = {
@@ -112,33 +113,11 @@ const addFormValidator = new FormValidator(
 
 //elements functions
 // @func
-
-const addElement = (data) => {
-  const elementElement = elementStracture
-    .querySelector(".element")
-    .cloneNode(true);
-  const elementTitleElement = elementElement.querySelector(".element__title");
-  elementTitleElement.textContent = data.name;
-  const likeBtn = elementElement.querySelector(".element__like-button");
-  const elementImage = elementElement.querySelector(".element__image");
-  elementImage.src = data.link;
-  elementImage.alt = `picture of a ${data.name}`;
-  const deleteBtn = elementElement.querySelector(".element__delete-button");
-  //eventListeners
-  elementImage.addEventListener("click", () => previewImage(data));
-  deleteBtn.addEventListener("click", () => elementElement.remove());
-  likeBtn.addEventListener("click", () =>
-    toggleClass(likeBtn, "element__like-button_active")
-  );
-  return elementElement;
-};
 const prependCard = (element, list) => {
   const card = new Card(element, cardSelector).addElment();
   list.prepend(card);
 };
-const toggleClass = (component, add) => {
-  component.classList.toggle(add);
-};
+
 
 //popup eventsListeners
 // @listens

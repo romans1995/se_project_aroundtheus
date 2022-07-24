@@ -1,5 +1,6 @@
 class FormValidator {
   constructor(settings, formElement) {
+
     this._inputSelector = settings.inputSelector;
     this._submitButtonSelector = settings.submitButtonSelector;
     this._inactiveButtonClass = settings.inactiveButtonClass;
@@ -7,7 +8,11 @@ class FormValidator {
     this._errorClass = settings.errorClass;
 
     this._form = formElement;
+
+// enable validation
+
   }
+  
 
   _hideInputError(input) {
     const errorElement = this._form.querySelector("#" + input.id + "-error");
@@ -30,11 +35,14 @@ class FormValidator {
   isFormValid(inputs) {
     return inputs.every((input) => input.validity.valid === true);
   }
+  
+
+
 
   toggleButton(inputs) {
-    const button = this._form.querySelector(".popup__submit-button");
+    const button = this._form.querySelector( this._submitButtonSelector);
     if (this.isFormValid(inputs)) {
-      button.removeAttribute("disabled");
+        this._submitButtonSelector.removeAttribute("disabled");
     } else {
       button.disabled = true;
     }
