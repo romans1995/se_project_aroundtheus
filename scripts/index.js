@@ -63,7 +63,7 @@ const elementList = elements.querySelector(".elements__list");
 //popup functions
 
 const editProfile = () => {
-  // editFormValidator.enableValidation();
+  editFormValidator.enableValidation();
   openPopup(profilePopup);
   fillProfileForm();
 };
@@ -79,7 +79,7 @@ const handleProfileEditSubmit = (event) => {
   closePopup(profilePopup);
 };
 const openCardPopup = () => {
-  // addFormValidator.enableValidation();
+  addFormValidator.enableValidation();
   openPopup(cardPopupAdd);
 };
 
@@ -104,7 +104,7 @@ const validationSettings = {
   errorClass: "popup__error_visible",
 };
 
-const editFormValidator = new FormValidator(validationSettings, editPopupForm);
+
 const addFormValidator = new FormValidator(
   validationSettings,
   editPopupFormAddPlace

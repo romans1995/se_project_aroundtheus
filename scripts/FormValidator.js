@@ -8,11 +8,30 @@ class FormValidator {
     this._errorClass = settings.errorClass;
 
     this._form = formElement;
+    this._inputs = [...this._form.querySelectorAll(this._inputSelector)];
+  this._button = this._form.querySelector( this._submitButtonSelector);
+
+  const formValidators = {}
 
 // enable validation
+const enableValidation = () => {
+  const formList = Array.from(document.querySelectorAll(this._form))
+  formList.forEach((formElement) => {
+    const validator = new FormValidator(formElement, this._form)
+    // here you get the name of the form
+    const formName = formElement.getAttribute('name')
+
+   // here you store a validator by the `name` of the form
+    formValidators[formName] = validator;
+   validator.enableValidation();
+  });
+};
+
+enableValidation(this._form);
+ 
 
   }
-  
+
 
   _hideInputError(input) {
     const errorElement = this._form.querySelector("#" + input.id + "-error");
@@ -32,31 +51,27 @@ class FormValidator {
     }
   }
 
-  isFormValid(inputs) {
-    return inputs.every((input) => input.validity.valid === true);
+  isFormValid() {
+    return this._inputs.every((input) => input.validity.valid === true);
   }
-  
 
-
-
-  toggleButton(inputs) {
-    const button = this._form.querySelector( this._submitButtonSelector);
-    if (this.isFormValid(inputs)) {
-        this._submitButtonSelector.removeAttribute("disabled");
+  toggleButton() {
+    if (this.isFormValid()) {
+        this._button.removeAttribute("disabled");
     } else {
-      button.disabled = true;
+      this._button.disabled = true;
     }
   }
 
   _setEventListeners() {
-    const inputs = [...this._form.querySelectorAll(this._inputSelector)];
-    this.toggleButton(inputs);
-    inputs.forEach((input) => {
-      input.addEventListener("input", () => {
+    console.log(this._inputs);
+    this.toggleButton(this._inputs);
+    this._inputs.forEach((input) => {
+        input.addEventListener("input", () => {
         // check validity
         this._checkInputValidity(input);
         // toggle the button
-        this.toggleButton(inputs);
+        this.toggleButton(input);
       });
     });
   }
