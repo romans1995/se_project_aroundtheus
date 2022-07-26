@@ -45,7 +45,6 @@ class FormValidator {
   }
 
   _setEventListeners() {
-    console.log(this._inputs);
     this.toggleButton(this._inputs);
     this._inputs.forEach((input) => {
         input.addEventListener("input", () => {
