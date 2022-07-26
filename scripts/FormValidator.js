@@ -11,25 +11,6 @@ class FormValidator {
     this._inputs = [...this._form.querySelectorAll(this._inputSelector)];
   this._button = this._form.querySelector( this._submitButtonSelector);
 
-  const formValidators = {}
-
-// enable validation
-const enableValidation = () => {
-  const formList = Array.from(document.querySelectorAll(this._form))
-  formList.forEach((formElement) => {
-    const validator = new FormValidator(formElement, this._form)
-    // here you get the name of the form
-    const formName = formElement.getAttribute('name')
-
-   // here you store a validator by the `name` of the form
-    formValidators[formName] = validator;
-   validator.enableValidation();
-  });
-};
-
-enableValidation(this._form);
- 
-
   }
 
 

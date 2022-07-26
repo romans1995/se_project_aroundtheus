@@ -45,8 +45,8 @@ const profileName = document.querySelector(".profile__description-name");
 const profileAbout = document.querySelector(".profile__description-prof");
 const allPopupCloseBtns = document.querySelectorAll(".popup__close-btn");
 
-const allPopups = document.querySelectorAll(".popup");
-const submitBtn = document.querySelector(".popup__submit-button");
+// const allPopups = document.querySelectorAll(".popup");
+// const submitBtn = document.querySelector(".popup__submit-button");
 //end popup
 
 const addPlaceBtn = document.querySelector(".profile__add");
@@ -54,7 +54,7 @@ const placeName = document.querySelector(".popup__inputs-type-placeName");
 const placeLink = document.querySelector(".popup__inputs-type-placeLink");
 
 //elements
-const elementStracture = document.querySelector(".element-Stracture").content;
+// const elementStracture = document.querySelector(".element-Stracture").content;
 const cardSelector = ".element-Stracture";
 const elements = document.querySelector(".elements");
 const elementList = elements.querySelector(".elements__list");
@@ -63,7 +63,6 @@ const elementList = elements.querySelector(".elements__list");
 //popup functions
 
 const editProfile = () => {
-  editFormValidator.enableValidation();
   openPopup(profilePopup);
   fillProfileForm();
 };
@@ -79,7 +78,7 @@ const handleProfileEditSubmit = (event) => {
   closePopup(profilePopup);
 };
 const openCardPopup = () => {
-  addFormValidator.enableValidation();
+
   openPopup(cardPopupAdd);
 };
 
@@ -104,13 +103,14 @@ const validationSettings = {
   errorClass: "popup__error_visible",
 };
 
-
+const editFormValidator = new FormValidator(validationSettings,editPopupForm);
 const addFormValidator = new FormValidator(
   validationSettings,
   editPopupFormAddPlace
 );
 
-
+editFormValidator.enableValidation();
+addFormValidator.enableValidation();
 //elements functions
 // @func
 const prependCard = (element, list) => {
