@@ -1,7 +1,7 @@
-import FormValidator from "./FormValidator.js";
-import Card from "./Card.js";
-import { openPopup, closePopup } from "./utils.js";
-
+import FormValidator from "./components/FormValidator.js";
+import Card from "./components/Card.js";
+import { openPopup, closePopup } from "./components/utils.js";
+import "./pages/index.css";
 const initialElements = [
   {
     name: "Yosemite Valley",

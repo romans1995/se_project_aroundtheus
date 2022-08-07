@@ -1,4 +1,4 @@
-# Project 7: Around The U.S.
+# Project 8: Around The U.S.
 
 ## project name :Around The U.S.
 
@@ -7,6 +7,7 @@
  - HTML  
  - CSS
  - JAVASCRIPT
+ - Webpack
  
  ## Git pages link
 
