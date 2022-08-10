@@ -23,6 +23,10 @@
      };
 
      setEventListener() {
-         this._popupElement.querySelector('.popup__close-btn').addEventListener('click', this.close);
+         this._popupElement.querySelector('.popup').addEventListener('click', (e) =>{
+            if(e.classList.contains('popup__close-button') || e.closest('popup__container')){
+                this.close()
+            }
+         });
      }
  }
