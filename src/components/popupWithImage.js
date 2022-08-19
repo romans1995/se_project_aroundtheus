@@ -8,6 +8,8 @@ export class PopupWithImage extends Popup {
 
         imageElment.src = link;
         popupElement = text;
+
+        super.open();
     }
 }
-const popupImagenew = PopupWithImage('.popup_image-prev');
+// const popupImagenew = PopupWithImage('.popup_image-prev');

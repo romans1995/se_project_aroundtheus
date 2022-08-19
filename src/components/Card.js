@@ -1,32 +1,32 @@
-import {previewImage} from "./utils.js"
+import { previewImage } from "./utils.js"
 class Card {
     constructor(data, cardSelector) {
         this._element = data;
         this._name = data.name;
         this._link = data.link;
         this._cardSelector = cardSelector;
-       
+
     }
     _getTemplate() {
-     
+
         const cardElement = document.querySelector(this._cardSelector).content.querySelector(".element").cloneNode(true);
         return cardElement;
     }
     _seteventListeners() {
-          this._elementImage.addEventListener("click", ()=>{previewImage(this._link, this._name)});
-          this._likeBtn.addEventListener("click", (evt)=>{this._toggleLike(evt)});
-          this._deleteBtn.addEventListener("click", (evt)=>{this._handleElmentRemove(evt)});
+        this._elementImage.addEventListener("click", () => { previewImage(this._link, this._name) });
+        this._likeBtn.addEventListener("click", (evt) => { this._toggleLike(evt) });
+        this._deleteBtn.addEventListener("click", (evt) => { this._handleElmentRemove(evt) });
     }
 
-        _toggleLike (evt) {
-       evt.target.classList.toggle("element__like-button_active");
+    _toggleLike(evt) {
+        evt.target.classList.toggle("element__like-button_active");
     }
-    
+
     _handleElmentRemove() {
         this._element.remove();
     }
-   
-        addElment(){
+
+    addElment() {
         this._element = this._getTemplate();
         this._elementImage = this._element.querySelector(".element__image");
         this._likeBtn = this._element.querySelector(".element__like-button");
@@ -36,6 +36,6 @@ class Card {
         this._elementImage.src = this._link;
         this._seteventListeners();
         return this._element;
-        }
+    }
 }
 export default Card;
