@@ -4,6 +4,8 @@ import Section from './components/Section.js';
 import { openPopup, closePopup } from './components/utils.js';
 import './pages/index.css';
 import { PopupWithForm } from './components/PopupWithForm.js';
+import logo from "./images/logo.svg";
+import profileImg from "./images/profilePerson.jpg";
 const initialElements = [{
         name: 'Yosemite Valley',
         link: 'https://code.s3.yandex.net/web-code/yosemite.jpg',
@@ -60,6 +62,12 @@ const elements = document.querySelector('.elements');
 const elementList = elements.querySelector('.elements__list');
 //image preview
 
+// imgs
+const logoImg = document.querySelector('.header__logo');
+const theprofileImg = document.querySelector('.profile__img');
+logoImg.src = logo;
+theprofileImg.src = profileImg;
+// end of imgs 
 //popup functions
 
 const fillProfileForm = () => {
@@ -98,7 +106,7 @@ const validationSettings = {
     inputErrorClass: 'popup__input-error',
     errorClass: 'popup__error_visible',
 };
-console.log('please', 'some other place to console');
+
 
 const editFormValidator = new FormValidator(validationSettings, editPopupForm);
 const addFormValidator = new FormValidator(

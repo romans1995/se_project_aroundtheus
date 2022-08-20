@@ -21,12 +21,15 @@
          document.removeEventListener("keydown", this._handleEscClose);
          this._popupElement.removeEventListener("mousedown", closePopupOnRemoteClick);
      };
+     closePopupOnRemoteClick() {
+
+     }
 
      setEventListener() {
-         this._popupElement.querySelector('.popup').addEventListener('click', (e) =>{
-            if(e.classList.contains('popup__close-button') || e.closest('popup__container')){
-                this.close()
-            }
+         this._popupElement.querySelector('.popup').addEventListener('click', (e) => {
+             if (e.classList.contains('popup__close-btn') || e.closest('popup__container')) {
+                 this.close()
+             } else { console.log('error') }
          });
      }
  }
