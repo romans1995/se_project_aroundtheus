@@ -16,6 +16,7 @@ module.exports = {
         publicPath: '',
     },
     mode: 'development', // setup for dev mode follows
+
     devServer: {
         static: path.resolve(__dirname, './dist'),
         compress: false, // this will speed up file loading in development mode

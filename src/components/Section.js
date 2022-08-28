@@ -1,11 +1,5 @@
 class Section {
-    // obj str
-    //obj{
-    //  renderer:fn
-    //  items:[]
-    // }
-    //new Section(obj, str)
-    // new Section(fh, listItems, str)
+
     constructor({ renderer, items }, containerSelect) {
         this._items = items;
         this._renderer = renderer;

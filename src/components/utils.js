@@ -2,7 +2,7 @@ const imgPreviewModal = document.querySelector(".popup_image-prev");
 const popupImage = imgPreviewModal.querySelector(".popup__image");
 const popupCaption = imgPreviewModal.querySelector(".popup__caption");
 
-export const previewImage = (link,text) => {
+export const previewImage = (link, text) => {
     popupImage.src = link;
     popupImage.alt = `A beautiful place in ${text}`;
     popupCaption.textContent = text;
@@ -15,7 +15,7 @@ export const openPopup = (elem) => {
     elem.addEventListener("mousedown", closePopupOnRemoteClick);
 };
 
- function closePopupByEscape(event) {
+function closePopupByEscape(event) {
     if (event.key === "Escape") {
         // search for an opened popup
         const openedPopup = document.querySelector(".popup_active");

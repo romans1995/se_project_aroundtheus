@@ -114,6 +114,7 @@ const addFormValidator = new FormValidator(
     editPopupFormAddPlace,
 );
 
+
 // popup class based
 
 const popupEditProfile = new PopupWithForm('.profile-popup', (data) => {
@@ -132,7 +133,6 @@ const editProfile = () => {
 };
 
 const popupAddPlace = new PopupWithForm('.popup-addElement', (data) => {
-    console.log('please', data);
     // event.preventDefault();
     const newElement = {
         name: `${data[placeName.name]}`,
