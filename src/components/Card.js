@@ -1,6 +1,3 @@
-// import { previewImage } from "./utils.js"
-
-
 class Card {
     constructor(data, cardSelector, { handleClickCard }) {
         this._element = data;
@@ -8,7 +5,6 @@ class Card {
         this._link = data.link;
         this._cardSelector = cardSelector;
         this._handleClickCard = handleClickCard;
-
 
     }
     _getTemplate() {

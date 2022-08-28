@@ -3,7 +3,6 @@ class Section {
     constructor({ renderer, items }, containerSelect) {
         this._items = items;
         this._renderer = renderer;
-        // this._container = document.querySelector(`.${containerSelect}`);
         this._container = containerSelect;
     }
 

@@ -5,7 +5,6 @@ import './pages/index.css';
 import { PopupWithForm } from './components/PopupWithForm.js';
 import { PopupWithImage } from './components/PopupWithImage.js';
 import { UserInfo } from './components/UserInfo.js';
-
 import logo from "./images/logo.svg";
 import profileImg from "./images/profilePerson.jpg";
 const initialElements = [{
@@ -72,11 +71,6 @@ theprofileImg.src = profileImg;
 // end of imgs 
 //popup functions
 
-// const fillProfileForm = () => {
-//     nameInput.value = profileName.textContent;
-//     aboutInput.value = profileAbout.textContent;
-// };
-
 const fillProfileForm = new UserInfo(nameInput.value, aboutInput.value);
 
 const openCardPopup = () => {
@@ -84,18 +78,6 @@ const openCardPopup = () => {
     // openPopup(cardPopupAdd);
 };
 
-// const handleAddPlaceSubmit = (event) => {
-//     event.preventDefault();
-//     const newElement = {
-//         name: `${placeName.value}`,
-//         link: `${placeLink.value}`,
-//     };
-//     closePopup(cardPopupAdd);
-//     prependCard(newElement, elementList);
-//     editPopupFormAddPlace.reset();
-//     const inputs = [...cardPopupAdd.querySelectorAll('.popup__input')];
-//     addFormValidator.toggleButton(inputs, cardPopupAdd);
-// };
 
 const validationSettings = {
     inputSelector: '.popup__input',
