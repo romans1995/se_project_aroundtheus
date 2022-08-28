@@ -1,10 +1,14 @@
-import { previewImage } from "./utils.js"
+// import { previewImage } from "./utils.js"
+
+
 class Card {
-    constructor(data, cardSelector) {
+    constructor(data, cardSelector, { handleClickCard }) {
         this._element = data;
         this._name = data.name;
         this._link = data.link;
         this._cardSelector = cardSelector;
+        this._handleClickCard = handleClickCard;
+
 
     }
     _getTemplate() {
@@ -13,7 +17,7 @@ class Card {
         return cardElement;
     }
     _seteventListeners() {
-        this._elementImage.addEventListener("click", () => { previewImage(this._link, this._name) });
+        this._elementImage.addEventListener("click", () => { this._handleClickCard(this._link, this._name) });
         this._likeBtn.addEventListener("click", (evt) => { this._toggleLike(evt) });
         this._deleteBtn.addEventListener("click", (evt) => { this._handleElmentRemove(evt) });
     }

@@ -2,18 +2,13 @@
      constructor(PopupSelector) {
          this._popupElement = document.querySelector(PopupSelector);
          this.close = this.close.bind(this);
-         this._openedPopup = document.querySelector(".popup__active");
-
      }
 
      _handleEscClose = (e) => {
-         console.log("esc")
          if (e.key === "Escape") {
              this.close();
          }
      }
-
-
 
      open() {
          this._popupElement.classList.add("popup_active");
