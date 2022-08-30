@@ -1,52 +1,29 @@
-import FormValidator from './components/FormValidator.js';
-import Card from './components/Card.js';
-import Section from './components/Section.js';
-import './pages/index.css';
-import { PopupWithForm } from './components/PopupWithForm.js';
-import { PopupWithImage } from './components/PopupWithImage.js';
-import { UserInfo } from './components/UserInfo.js';
-import { initialElements } from './utils/constants.js'
-import logo from "./images/logo.svg";
-import profileImg from "./images/profilePerson.jpg";
+import FormValidator from '../components/FormValidator.js';
+import Card from '../components/Card.js';
+import Section from '../components/Section.js';
+import '../pages/index.css';
+import { PopupWithForm } from '../components/PopupWithForm.js';
+import { PopupWithImage } from '../components/PopupWithImage.js';
+import { UserInfo } from '../components/UserInfo.js';
 
+import logo from "../images/logo.svg";
+import profileImg from "../images/profilePerson.jpg";
+import {
+    initialElements,
+    nameInput,
+    aboutInput,
+    editPopupForm,
+    editPopupFormAddPlace,
+    editModeName,
+    addPlaceBtn,
+    cardSelector,
+    elementList,
+    logoImg,
+    theprofileImg
+} from '../utils/constants.js'
 
-// popup
-
-const nameInput = document.querySelector('.popup__inputs-type-name');
-const aboutInput = document.querySelector('.popup__inputs-type-description');
-const profilePopup = document.querySelector('.profile-popup');
-const cardPopupAdd = document.querySelector('.popup-addElement');
-const editPopupForm = document.querySelector('.popup__inputs-container');
-const editPopupFormAddPlace = document.querySelector(
-    '.popup__inputs-container-addPlace',
-);
-
-const editModeName = document.querySelector('.profile__edit');
-const profileName = document.querySelector('.profile__description-name');
-const profileAbout = document.querySelector('.profile__description-prof');
-const allPopupCloseBtns = document.querySelectorAll('.popup__close-btn');
-
-// const allPopups = document.querySelectorAll(".popup");
-// const submitBtn = document.querySelector(".popup__submit-button");
-//end popup
-
-const addPlaceBtn = document.querySelector('.profile__add');
-const placeName = document.querySelector('.popup__inputs-type-placeName');
-const placeLink = document.querySelector('.popup__inputs-type-placeLink');
-
-//elements
-const cardSelector = '.element-Stracture';
-const elements = document.querySelector('.elements');
-const elementList = elements.querySelector('.elements__list');
-//image preview
-
-// imgs
-const logoImg = document.querySelector('.header__logo');
-const theprofileImg = document.querySelector('.profile__img');
 logoImg.src = logo;
 theprofileImg.src = profileImg;
-// end of imgs 
-//popup functions
 
 const userInfo = new UserInfo(".profile__description-name", ".profile__description-prof");
 
@@ -98,8 +75,6 @@ const popupAddPlace = new PopupWithForm('.popup-addElement', (data) => {
         name: `${data.placeName}`,
         link: `${data.placeLink}`,
     };
-    // closePopup(cardPopupAdd);
-    // console.log(newElement);
     section.addItem(createCard(newElement));
 });
 popupAddPlace.setEventListeners();
