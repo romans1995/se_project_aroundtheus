@@ -5,33 +5,10 @@ import './pages/index.css';
 import { PopupWithForm } from './components/PopupWithForm.js';
 import { PopupWithImage } from './components/PopupWithImage.js';
 import { UserInfo } from './components/UserInfo.js';
+import { initialElements } from './utils/constants.js'
 import logo from "./images/logo.svg";
 import profileImg from "./images/profilePerson.jpg";
-const initialElements = [{
-        name: 'Yosemite Valley',
-        link: 'https://code.s3.yandex.net/web-code/yosemite.jpg',
-    },
-    {
-        name: 'Lake Louise',
-        link: 'https://code.s3.yandex.net/web-code/lake-louise.jpg',
-    },
-    {
-        name: 'Bald Mountains',
-        link: 'https://code.s3.yandex.net/web-code/bald-mountains.jpg',
-    },
-    {
-        name: 'Latemar',
-        link: 'https://code.s3.yandex.net/web-code/latemar.jpg',
-    },
-    {
-        name: 'Vanoise National Park',
-        link: 'https://code.s3.yandex.net/web-code/vanoise.jpg',
-    },
-    {
-        name: 'Lago di Braies',
-        link: 'https://code.s3.yandex.net/web-code/lago.jpg',
-    },
-];
+
 
 // popup
 
@@ -71,11 +48,11 @@ theprofileImg.src = profileImg;
 // end of imgs 
 //popup functions
 
-const fillProfileForm = new UserInfo(nameInput.value, aboutInput.value);
+const userInfo = new UserInfo(".profile__description-name", ".profile__description-prof");
 
 const openCardPopup = () => {
     popupAddPlace.open();
-    // openPopup(cardPopupAdd);
+    addFormValidator.toggleButton();
 };
 
 
@@ -97,20 +74,23 @@ const addFormValidator = new FormValidator(
 
 // popup class based
 
-const popupEditProfile = new PopupWithForm('.profile-popup', (data) => {
-    profileName.textContent = data[nameInput.name];
-    profileAbout.textContent = data[aboutInput.name];
+const popupEditProfile = new PopupWithForm(".profile-popup", (data) => {
+    userInfo.setUserInfo(data.name, data.job);
 });
+popupEditProfile.setEventListeners();
 
 const popupPreviewImage = new PopupWithImage('.popup_image-prev');
 popupPreviewImage.setEventListener();
 
 
-popupEditProfile.setEventListeners();
+
 const editProfile = () => {
-    // openPopup(profilePopup);
     popupEditProfile.open();
-    fillProfileForm();
+    const userData = userInfo.getUserInfo();
+    console.log(nameInput.value);
+    nameInput.value = userData.name;
+    aboutInput.value = userData.title;
+
 };
 
 const popupAddPlace = new PopupWithForm('.popup-addElement', (data) => {
@@ -122,9 +102,8 @@ const popupAddPlace = new PopupWithForm('.popup-addElement', (data) => {
     // closePopup(cardPopupAdd);
 
     section.addItem(createCard(newElement));
-    editPopupFormAddPlace.reset();
     const inputs = [...cardPopupAdd.querySelectorAll('.popup__input')];
-    addFormValidator.toggleButton(inputs, cardPopupAdd);
+    addFormValidator.toggleButton();
 });
 popupAddPlace.setEventListeners();
 

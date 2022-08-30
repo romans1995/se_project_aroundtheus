@@ -21,10 +21,9 @@
          document.removeEventListener("mousedown", this._closePopupOnRemoteClick);
      };
 
-     _closePopupOnRemoteClick(e) {
+     _closePopupOnRemoteClick = (e) => {
          if (e.target.classList.contains("popup")) {
-             //  this.close didnt work here ..dont know why 
-             e.target.classList.remove("popup_active");
+             this.close();
          }
      }
 
