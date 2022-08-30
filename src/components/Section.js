@@ -12,7 +12,7 @@ class Section {
         });
     }
     addItem(element) {
-        this._renderer(element);
+        this._container.prepend(element);
     }
 }
 export default Section;

@@ -87,7 +87,6 @@ popupPreviewImage.setEventListener();
 const editProfile = () => {
     popupEditProfile.open();
     const userData = userInfo.getUserInfo();
-    console.log(nameInput.value);
     nameInput.value = userData.name;
     aboutInput.value = userData.title;
 
@@ -96,14 +95,12 @@ const editProfile = () => {
 const popupAddPlace = new PopupWithForm('.popup-addElement', (data) => {
     // event.preventDefault();
     const newElement = {
-        name: `${data[placeName.name]}`,
-        link: `${data[placeLink.name]}`,
+        name: `${data.placeName}`,
+        link: `${data.placeLink}`,
     };
     // closePopup(cardPopupAdd);
-
+    // console.log(newElement);
     section.addItem(createCard(newElement));
-    const inputs = [...cardPopupAdd.querySelectorAll('.popup__input')];
-    addFormValidator.toggleButton();
 });
 popupAddPlace.setEventListeners();
 
@@ -123,7 +120,7 @@ const createCard = (element) => {
 
 const prependCard = (element) => {
     const card = createCard(element);
-    elementList.prepend(card);
+    section.addItem(card)
 };
 
 //popup eventsListeners
