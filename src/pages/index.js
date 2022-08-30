@@ -19,7 +19,8 @@ import {
     cardSelector,
     elementList,
     logoImg,
-    theprofileImg
+    theprofileImg,
+    validationSettings
 } from '../utils/constants.js'
 
 logoImg.src = logo;
@@ -31,16 +32,6 @@ const openCardPopup = () => {
     popupAddPlace.open();
     addFormValidator.toggleButton();
 };
-
-
-const validationSettings = {
-    inputSelector: '.popup__input',
-    submitButtonSelector: '.popup__submit-button',
-    inactiveButtonClass: 'popup__button_disabled',
-    inputErrorClass: 'popup__input-error',
-    errorClass: 'popup__error_visible',
-};
-
 
 const editFormValidator = new FormValidator(validationSettings, editPopupForm);
 const addFormValidator = new FormValidator(
@@ -83,7 +74,6 @@ editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 //elements functions
 // @func
-
 const createCard = (element) => {
     const card = new Card(element, cardSelector, {
         handleClickCard: () => {

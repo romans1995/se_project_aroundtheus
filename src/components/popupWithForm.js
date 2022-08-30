@@ -18,6 +18,7 @@ export class PopupWithForm extends Popup {
     }
     close = () => {
         super.close();
+        this._form.reset();
     };
 
 
@@ -27,7 +28,6 @@ export class PopupWithForm extends Popup {
             const data = this._getInputValues();
             this.submitHandler(data); //this._getInputValues in
             this.close();
-            this._form.reset();
         });
 
         super.setEventListener();

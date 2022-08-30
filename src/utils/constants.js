@@ -43,7 +43,13 @@
   // imgs
   const logoImg = document.querySelector('.header__logo');
   const theprofileImg = document.querySelector('.profile__img');
-
+  const validationSettings = {
+      inputSelector: '.popup__input',
+      submitButtonSelector: '.popup__submit-button',
+      inactiveButtonClass: 'popup__button_disabled',
+      inputErrorClass: 'popup__input-error',
+      errorClass: 'popup__error_visible',
+  };
   // end of imgs 
   //popup functions
 
@@ -59,6 +65,7 @@
       elements,
       elementList,
       logoImg,
-      theprofileImg
+      theprofileImg,
+      validationSettings
 
   }
