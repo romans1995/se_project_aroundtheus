@@ -22,6 +22,11 @@ import {
     theprofileImg,
     validationSettings
 } from '../utils/constants.js'
+import { api } from "../components/Api.js";
+
+api.getInitalCards().then(res => {
+    console.log("res "+res)
+})
 
 logoImg.src = logo;
 theprofileImg.src = profileImg;
@@ -101,3 +106,4 @@ const section = new Section({
     elementList,
 );
 section.renderItems();
+

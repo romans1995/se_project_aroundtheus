@@ -23,6 +23,8 @@
           link: 'https://code.s3.yandex.net/web-code/lago.jpg',
       },
   ];
+
+
   // popup
 
   const nameInput = document.querySelector('.popup__inputs-type-name');
