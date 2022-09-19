@@ -9,7 +9,6 @@ import { UserInfo } from '../components/UserInfo.js';
 import logo from "../images/logo.svg";
 import profileImg from "../images/profilePerson.jpg";
 import {
-    initialElements,
     nameInput,
     aboutInput,
     editPopupForm,
@@ -24,10 +23,8 @@ import {
 } from '../utils/constants.js'
 import { api } from "../components/Api.js";
 
-api.getInitalCards().then(res => {
-    console.log("res "+res)
-})
 
+// console.log(initialElements);
 logoImg.src = logo;
 theprofileImg.src = profileImg;
 
@@ -101,9 +98,11 @@ addPlaceBtn.addEventListener('click', openCardPopup);
 
 const section = new Section({
         renderer: prependCard,
-        items: initialElements,
+        
     },
     elementList,
 );
-section.renderItems();
 
+api.getInitalCards().then(res => {
+    section.renderItems(res)
+})
