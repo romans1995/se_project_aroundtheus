@@ -98,11 +98,13 @@ addPlaceBtn.addEventListener('click', openCardPopup);
 
 const section = new Section({
         renderer: prependCard,
-        
     },
     elementList,
 );
 
 api.getInitalCards().then(res => {
-    section.renderItems(res)
+    section.renderItems(res);
+})
+api.getUserInformation().then(res => {
+    userInfo.setUserInfo(res.name, res.about);
 })

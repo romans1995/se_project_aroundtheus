@@ -1,10 +1,8 @@
 class Section {
 
     constructor({ renderer }, container) {
-        // this._items = items;
         this._renderer = renderer;
         this._container = container;
-        console.log(this._items);
     }
 
     renderItems(items) {
