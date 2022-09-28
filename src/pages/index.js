@@ -20,8 +20,10 @@ import {
     logoImg,
     theprofileImg,
     validationSettings
-} from '../utils/constants.js'
+} from '../utils/constants.js';
 import { api } from "../components/Api.js";
+import PopupWithSubmit from '../components/PopupWithSubmit.js';
+
 
 
 // console.log(initialElements);
@@ -52,6 +54,8 @@ popupEditProfile.setEventListeners();
 const popupPreviewImage = new PopupWithImage('.popup_image-prev');
 popupPreviewImage.setEventListener();
 
+const confirmDelete = new PopupWithSubmit('.popup-deleteCard');
+confirmDelete.setEventListeners();
 
 
 const editProfile = () => {
@@ -63,15 +67,17 @@ const editProfile = () => {
 };
 
 const popupAddPlace = new PopupWithForm('.popup-addElement', (data) => {
-    // event.preventDefault();
+   api.createCard(data)
+   .then(res =>{
     const newElement = {
-        name: `${data.placeName}`,
-        link: `${data.placeLink}`,
+        name: `${res.name}`,
+        link: `${res.link}`,
     };
     section.addItem(createCard(newElement));
+   })
+    
 });
 popupAddPlace.setEventListeners();
-
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 //elements functions
@@ -80,6 +86,9 @@ const createCard = (element) => {
     const card = new Card(element, cardSelector, {
         handleClickCard: () => {
             popupPreviewImage.open(element.link, element.name);
+        },
+        handleDeleteCard: () =>{
+            confirmDelete.open();
         }
     }).addElment();
     return card;

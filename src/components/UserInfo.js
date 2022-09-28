@@ -13,7 +13,7 @@ export class UserInfo {
         };
     }
     setUserInfo(name, job) {
-        console.log(name);
+        
         this._userName.textContent = name;
         this._userJob.textContent = job;
     }
