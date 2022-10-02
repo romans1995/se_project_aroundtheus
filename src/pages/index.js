@@ -25,8 +25,14 @@ import { api } from "../components/Api.js";
 import PopupWithSubmit from '../components/PopupWithSubmit.js';
 
 
-
-// console.log(initialElements);
+let userId;
+Promise.all([api.getInitalCards(), api.getUserInformation()])
+    .then(([cardData, userInfoData]) => {
+        userId = userInfoData._id;
+        section.renderItems(cardData);
+        userInfo.setUserInfo(userInfoData.name, userInfoData.about);
+    })
+    // console.log(initialElements);
 logoImg.src = logo;
 theprofileImg.src = profileImg;
 
@@ -67,30 +73,43 @@ const editProfile = () => {
 };
 
 const popupAddPlace = new PopupWithForm('.popup-addElement', (data) => {
-   api.createCard(data)
-   .then(res =>{
-    const newElement = {
-        name: `${res.name}`,
-        link: `${res.link}`,
-    };
-    section.addItem(createCard(newElement));
-   })
-    
+    api.createCard(data)
+        .then(res => {
+            const newElement = {
+                name: `${res.name}`,
+                link: `${res.link}`,
+            };
+            section.addItem(createCard(newElement));
+        })
+
 });
 popupAddPlace.setEventListeners();
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 //elements functions
 // @func
+
+
 const createCard = (element) => {
     const card = new Card(element, cardSelector, {
+        userId,
         handleClickCard: () => {
             popupPreviewImage.open(element.link, element.name);
         },
-        handleDeleteCard: () =>{
+        handleDeleteCard: (id) => {
             confirmDelete.open();
+            confirmDelete.setAction(
+                () => {
+                    api.deleteCard(id)
+                        .then(res => {
+                            card.remove();
+                            confirmDelete.close();
+                        })
+                })
         }
     }).addElment();
+
+
     return card;
 };
 
@@ -111,9 +130,9 @@ const section = new Section({
     elementList,
 );
 
-api.getInitalCards().then(res => {
-    section.renderItems(res);
-})
-api.getUserInformation().then(res => {
-    userInfo.setUserInfo(res.name, res.about);
-})
+// api.getInitalCards().then(res => {
+//     section.renderItems(res);
+// })
+// api.getUserInformation().then(res => {
+//     userInfo.setUserInfo(res.name, res.about);
+// })

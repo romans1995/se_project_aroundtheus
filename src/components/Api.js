@@ -25,7 +25,7 @@ class Api {
         return customFetch(`${this._baseUrl}/cards`, {
             headers: this._headers,
             method: 'POST',
-            body:JSON.stringify(data)
+            body: JSON.stringify(data).sort()
         })
     }
 

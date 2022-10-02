@@ -72,11 +72,11 @@
             </form>
         </div>
     </section>
-    <section class=" popup popup-deleteCard ">
-        <div class="popup__container ">
+    <section class=" popup popup-deleteCard">
+        <div class="popup__container">
+            <button type="button" class="popup__close-btn popup__close-delete-card "></button>
             <form class="popup__inputs-container popup__inputs-delete-place " name="popup__delete-place" novalidate>
-            <button type="button" class="popup__close-btn popup__close-btn-addPlace "></button>
-            <h3 class="popup__title ">Are you sure you want to Delete this card?</h3>
+                <h3 class="popup__title ">Are you sure you want to Delete this card?</h3>
                 <button class="popup__submit-button popup__submit-button-addPlace " type="submit">Delete</button>
             </form>
         </div>
@@ -88,7 +88,7 @@
             aria-label="delete element "
             class="element__delete-button "
           ></button>
-          <img src="# " alt="# " class="element__image " />
+          <img src="# " alt="# " class="element__image" />
           <div class="element__title-area ">
             <h2 class="element__title"></h2>
             <button
@@ -96,6 +96,7 @@
               type="button "
               aria-label="like element"
             ></button>
+            <span class="element__likes-count"></span>
           </div>
         </li>
       </template>
