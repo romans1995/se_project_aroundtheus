@@ -25,7 +25,7 @@ class Api {
         return customFetch(`${this._baseUrl}/cards`, {
             headers: this._headers,
             method: 'POST',
-            body: JSON.stringify(data).sort()
+            body: JSON.stringify(data)
         })
     }
 
@@ -35,6 +35,12 @@ class Api {
             method: "DELETE",
         }).then(this._checkResponse);
     }
+    likeCard(cardId) {
+        return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
+            headers: this._headers,
+            method: "PUT",
+        })
+}
 }
 
 export const api = new Api({

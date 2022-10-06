@@ -96,6 +96,13 @@ const createCard = (element) => {
         handleClickCard: () => {
             popupPreviewImage.open(element.link, element.name);
         },
+       handleLike:(id) =>{
+        api.likeCard(id)
+        .then(res =>{
+            likeCards()
+            console.log("res",res);
+        })
+       },
         handleDeleteCard: (id) => {
             confirmDelete.open();
             confirmDelete.setAction(

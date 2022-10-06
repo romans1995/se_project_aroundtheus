@@ -1,5 +1,5 @@
 class Card {
-    constructor(data, cardSelector, { handleClickCard, handleDeleteCard, handleLikeIcon, userId }) {
+    constructor(data, cardSelector, { handleClickCard, handleDeleteCard, handleLike, userId, }) {
         this._element = data;
         this._name = data.name;
         this._link = data.link;
@@ -8,9 +8,10 @@ class Card {
         this._handleClickCard = handleClickCard;
         this._handleDeleteCard = handleDeleteCard;
         this._cardId = data._id;
-
         this._userId = userId;
-        this._ownerId = data.owner._id;
+        this._ownerId = data.owner;
+        this._handleLike = handleLike;
+
     }
     _getTemplate() {
 
@@ -20,13 +21,16 @@ class Card {
     _seteventListeners() {
 
         this._elementImage.addEventListener("click", () => { this._handleClickCard(this._link, this._name) });
-        this._likeBtn.addEventListener("click", (evt) => { this._toggleLike(evt) });
+        this._likeBtn.addEventListener("click", (evt) => { this._handleLike(this._cardId) });
         this._deleteBtn.addEventListener("click", () => { this._handleDeleteCard(this._cardId) });
     }
-
-    _toggleLike(evt) {
-        evt.target.classList.toggle("element__like-button_active");
+     likeCards  () {
+        this._element.querySelector('.element__like-button')
+        .classList.add("element__like-button_active");
     }
+    // _toggleLike(evt) {
+    //     evt.target.classList.toggle("element__like-button_active");
+    // }
 
 
     // handleElmentRemove() {
@@ -43,11 +47,15 @@ class Card {
         this._title = this._element.querySelector(".element__title").textContent = this._name;
         this._elementImage.alt = this._name;
         this._elementImage.src = this._link;
-        if (this._ownerId !== this._userId) {
+        if (this._ownerId._id !== this._userId) {
             this._deleteBtn.style.display = "none";
         }
-
-
+        const isLiked = this._likes.some((person) =>
+            person._id === this._userId 
+        )
+        if(isLiked){
+            this.likeCards()
+        }
         this._seteventListeners();
         return this._element;
     }
