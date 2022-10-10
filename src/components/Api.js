@@ -40,7 +40,13 @@ class Api {
             headers: this._headers,
             method: "PUT",
         })
-}
+    }
+    dislikeCard(cardId) {
+        return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
+            headers: this._headers,
+            method: "DELETE",
+        }).then(this._checkResponse)
+    }
 }
 
 export const api = new Api({

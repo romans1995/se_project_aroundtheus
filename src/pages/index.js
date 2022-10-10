@@ -96,28 +96,36 @@ const createCard = (element) => {
         handleClickCard: () => {
             popupPreviewImage.open(element.link, element.name);
         },
-       handleLike:(id) =>{
-        api.likeCard(id)
-        .then(res =>{
-            likeCards()
-            console.log("res",res);
-        })
-       },
+        handleLike: (id) => {
+            const isAlreayLiked = card.isLiked();
+            if (isAlreayLiked) {
+                api.dislikeCard(id)
+                    .then(res => card.dislikeCard(id))
+            } else {
+                console.log('like');
+                api.likeCard(id)
+                    .then(res => {
+                        card.likeCards(res.likes)
+                        console.log(res);
+
+                    })
+            }
+
+        },
         handleDeleteCard: (id) => {
             confirmDelete.open();
             confirmDelete.setAction(
                 () => {
                     api.deleteCard(id)
                         .then(res => {
-                            card.remove();
+                            card.handleElmentRemove();
                             confirmDelete.close();
                         })
                 })
         }
-    }).addElment();
+    });
 
-
-    return card;
+    return card.addElment();
 };
 
 const prependCard = (element) => {

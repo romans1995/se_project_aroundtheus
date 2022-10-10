@@ -12,6 +12,7 @@ class Card {
         this._ownerId = data.owner;
         this._handleLike = handleLike;
 
+
     }
     _getTemplate() {
 
@@ -24,19 +25,26 @@ class Card {
         this._likeBtn.addEventListener("click", (evt) => { this._handleLike(this._cardId) });
         this._deleteBtn.addEventListener("click", () => { this._handleDeleteCard(this._cardId) });
     }
-     likeCards  () {
-        this._element.querySelector('.element__like-button')
-        .classList.add("element__like-button_active");
+    likeCards(newLikes) {
+        // this._likes = newLikes
+        this._element.querySelector('.element__like-button').classList.toggle("element__like-button_active");
+        // this._element.querySelector(".element__likes-count").textContent = this._likes.length;
     }
-    // _toggleLike(evt) {
-    //     evt.target.classList.toggle("element__like-button_active");
-    // }
+    dislikeCard() {
+        this._element.querySelector('.element__like-button').classList.remove("element__like-button_active");
+        return this._element.querySelector(".element__likes-count").textContent = this._likes.length - 1;
+    }
 
 
-    // handleElmentRemove() {
-    //     this._element.remove();
-    //     this._element = null;
-    // }
+
+    handleElmentRemove() {
+        this._element.remove();
+        this._element = null;
+    }
+    isLiked() {
+        return this._likes.some((person) =>
+            person._id === this._userId)
+    }
 
     addElment() {
         this._element = this._getTemplate();
@@ -50,11 +58,9 @@ class Card {
         if (this._ownerId._id !== this._userId) {
             this._deleteBtn.style.display = "none";
         }
-        const isLiked = this._likes.some((person) =>
-            person._id === this._userId 
-        )
-        if(isLiked){
-            this.likeCards()
+
+        if (this.isLiked()) {
+            this.likeCards();
         }
         this._seteventListeners();
         return this._element;
