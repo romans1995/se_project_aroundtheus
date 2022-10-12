@@ -100,17 +100,14 @@ const createCard = (element) => {
             const isAlreayLiked = card.isLiked();
             if (isAlreayLiked) {
                 api.dislikeCard(id)
-                    .then(res => card.dislikeCard(id))
+                    .then(res => card.likeCards(element.likes))
             } else {
-                console.log('like');
                 api.likeCard(id)
                     .then(res => {
-                        card.likeCards(res.likes)
-                        console.log(res);
-
+                        card.likeCards(element.likes)
+                        console.log(element.likes.length + 1);
                     })
             }
-
         },
         handleDeleteCard: (id) => {
             confirmDelete.open();

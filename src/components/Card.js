@@ -26,14 +26,14 @@ class Card {
         this._deleteBtn.addEventListener("click", () => { this._handleDeleteCard(this._cardId) });
     }
     likeCards(newLikes) {
-        // this._likes = newLikes
-        this._element.querySelector('.element__like-button').classList.toggle("element__like-button_active");
-        // this._element.querySelector(".element__likes-count").textContent = this._likes.length;
-    }
-    dislikeCard() {
-        this._element.querySelector('.element__like-button').classList.remove("element__like-button_active");
-        return this._element.querySelector(".element__likes-count").textContent = this._likes.length - 1;
-    }
+            this._likes = newLikes;
+            this._element.querySelector('.element__like-button').classList.toggle("element__like-button_active");
+            return this._element.querySelector(".element__likes-count").textContent = this._likes.length;
+        }
+        // dislikeCard() {
+        //     this._element.querySelector('.element__like-button').classList.remove("element__like-button_active");
+        //     return this._element.querySelector(".element__likes-count").textContent = this._likes.length - 1;
+        // }
 
 
 
@@ -42,8 +42,8 @@ class Card {
         this._element = null;
     }
     isLiked() {
-        return this._likes.some((person) =>
-            person._id === this._userId)
+        return this._likes.some((like) =>
+            like._id === this._userId)
     }
 
     addElment() {
@@ -51,16 +51,18 @@ class Card {
         this._elementImage = this._element.querySelector(".element__image");
         this._likeBtn = this._element.querySelector(".element__like-button");
         this._deleteBtn = this._element.querySelector(".element__delete-button");
-        this._likeCount = this._element.querySelector(".element__likes-count").textContent = this._likes.length;
         this._title = this._element.querySelector(".element__title").textContent = this._name;
         this._elementImage.alt = this._name;
         this._elementImage.src = this._link;
+
+        this._likeCount = this._element.querySelector(".element__likes-count");
+        this._likeCount.textContent = this._likes.length;
         if (this._ownerId._id !== this._userId) {
             this._deleteBtn.style.display = "none";
         }
 
         if (this.isLiked()) {
-            this.likeCards();
+            this.likeCards(this._likes);
         }
         this._seteventListeners();
         return this._element;
