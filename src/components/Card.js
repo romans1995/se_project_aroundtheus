@@ -26,14 +26,11 @@ class Card {
         this._deleteBtn.addEventListener("click", () => { this._handleDeleteCard(this._cardId) });
     }
     likeCards(newLikes) {
-            this._likes = newLikes;
-            this._element.querySelector('.element__like-button').classList.toggle("element__like-button_active");
-            return this._element.querySelector(".element__likes-count").textContent = this._likes.length;
-        }
-        // dislikeCard() {
-        //     this._element.querySelector('.element__like-button').classList.remove("element__like-button_active");
-        //     return this._element.querySelector(".element__likes-count").textContent = this._likes.length - 1;
-        // }
+        this._likes = newLikes;
+        this._element.querySelector('.element__like-button').classList.toggle("element__like-button_active");
+        this._element.querySelector(".element__likes-count").textContent = this._likes.length;
+    }
+
 
 
 

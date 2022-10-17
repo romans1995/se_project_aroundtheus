@@ -89,6 +89,22 @@
     width: 120px;
     height: 120px;
     margin: 0;
+    z-index: 0;
+    transition: 0.3s;
+}
+
+.profile__img:hover {
+    opacity: 0.5;
+}
+
+.profile__img-container:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    background-image: url("../images/icons/editIcon.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px;
+    opacity: 1;
+    cursor: pointer;
 }
 
 .profile__description-button {

@@ -32,7 +32,6 @@ Promise.all([api.getInitalCards(), api.getUserInformation()])
         section.renderItems(cardData);
         userInfo.setUserInfo(userInfoData.name, userInfoData.about);
     })
-    // console.log(initialElements);
 logoImg.src = logo;
 theprofileImg.src = profileImg;
 
@@ -100,12 +99,11 @@ const createCard = (element) => {
             const isAlreayLiked = card.isLiked();
             if (isAlreayLiked) {
                 api.dislikeCard(id)
-                    .then(res => card.likeCards(element.likes))
+                    .then(res => card.likeCards(res.likes))
             } else {
                 api.likeCard(id)
                     .then(res => {
-                        card.likeCards(element.likes)
-                        console.log(element.likes.length + 1);
+                        card.likeCards(res.likes)
                     })
             }
         },
@@ -141,10 +139,3 @@ const section = new Section({
     },
     elementList,
 );
-
-// api.getInitalCards().then(res => {
-//     section.renderItems(res);
-// })
-// api.getUserInformation().then(res => {
-//     userInfo.setUserInfo(res.name, res.about);
-// })

@@ -30,19 +30,19 @@ class Api {
     }
 
     deleteCard(cardId) {
-        return fetch(`${this._baseUrl}/cards/${cardId}`, {
+        return customFetch(`${this._baseUrl}/cards/${cardId}`, {
             headers: this._headers,
             method: "DELETE",
         }).then(this._checkResponse);
     }
     likeCard(cardId) {
-        return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
+        return customFetch(`${this._baseUrl}/cards/likes/${cardId}`, {
             headers: this._headers,
             method: "PUT",
         })
     }
     dislikeCard(cardId) {
-        return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
+        return customFetch(`${this._baseUrl}/cards/likes/${cardId}`, {
             headers: this._headers,
             method: "DELETE",
         }).then(this._checkResponse)
