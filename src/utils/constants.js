@@ -42,6 +42,9 @@
   const elementList = elements.querySelector('.elements__list');
   //image preview
 
+  //avatar img
+  const avatarImage = document.querySelector('.profile__img-container');
+
   // imgs
   const logoImg = document.querySelector('.header__logo');
   const theprofileImg = document.querySelector('.profile__img');
@@ -68,6 +71,6 @@
       elementList,
       logoImg,
       theprofileImg,
-      validationSettings
-
+      validationSettings,
+      avatarImage
   }

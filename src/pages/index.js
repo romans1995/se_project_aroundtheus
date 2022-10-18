@@ -19,7 +19,8 @@ import {
     elementList,
     logoImg,
     theprofileImg,
-    validationSettings
+    validationSettings,
+    avatarImage
 } from '../utils/constants.js';
 import { api } from "../components/Api.js";
 import PopupWithSubmit from '../components/PopupWithSubmit.js';
@@ -31,16 +32,21 @@ Promise.all([api.getInitalCards(), api.getUserInformation()])
         userId = userInfoData._id;
         section.renderItems(cardData);
         userInfo.setUserInfo(userInfoData.name, userInfoData.about);
+        userInfo.setUserAvatar(userInfoData.avatar);
     })
 logoImg.src = logo;
 theprofileImg.src = profileImg;
 
-const userInfo = new UserInfo(".profile__description-name", ".profile__description-prof");
-
+const userInfo = new UserInfo(".profile__description-name", ".profile__description-prof", ".profile__img");
 const openCardPopup = () => {
     popupAddPlace.open();
     addFormValidator.toggleButton();
 };
+
+const openImageAvatar = () => {
+    popupChangeAvatrImage.open();
+    addFormValidator.toggleButton();
+}
 
 const editFormValidator = new FormValidator(validationSettings, editPopupForm);
 const addFormValidator = new FormValidator(
@@ -53,6 +59,7 @@ const addFormValidator = new FormValidator(
 
 const popupEditProfile = new PopupWithForm(".profile-popup", (data) => {
     userInfo.setUserInfo(data.name, data.job);
+    api.setUserInfo(data.name, data.job);
 });
 popupEditProfile.setEventListeners();
 
@@ -71,6 +78,12 @@ const editProfile = () => {
 
 };
 
+const popupChangeAvatrImage = new PopupWithForm('.popup-editAvatar', (data) => {
+    api.setAvatarImage(data.link).then(res => {
+        userInfo.setUserAvatar(res.avatar);
+    });
+});
+
 const popupAddPlace = new PopupWithForm('.popup-addElement', (data) => {
     api.createCard(data)
         .then(res => {
@@ -83,6 +96,7 @@ const popupAddPlace = new PopupWithForm('.popup-addElement', (data) => {
 
 });
 popupAddPlace.setEventListeners();
+popupChangeAvatrImage.setEventListeners();
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 //elements functions
@@ -133,6 +147,7 @@ const prependCard = (element) => {
 
 editModeName.addEventListener('click', editProfile);
 addPlaceBtn.addEventListener('click', openCardPopup);
+avatarImage.addEventListener('click', openImageAvatar);
 
 const section = new Section({
         renderer: prependCard,

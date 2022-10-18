@@ -11,14 +11,26 @@ class Api {
 
     getInitalCards() {
         return customFetch(`${this._baseUrl}/cards`, {
-            headers: this._headers
+            headers: this._headers,
+
         })
 
+    }
+    setUserInfo(name, about) {
+        return fetch(`${this._baseUrl}/users/me`, {
+            headers: this._headers,
+            method: "PATCH",
+            body: JSON.stringify({
+                name: name,
+                about: about,
+            }),
+        })
     }
 
     getUserInformation() {
         return customFetch(`${this._baseUrl}/users/me`, {
-            headers: this._headers
+            headers: this._headers,
+
         })
     }
     createCard(data) {
@@ -33,7 +45,7 @@ class Api {
         return customFetch(`${this._baseUrl}/cards/${cardId}`, {
             headers: this._headers,
             method: "DELETE",
-        }).then(this._checkResponse);
+        });
     }
     likeCard(cardId) {
         return customFetch(`${this._baseUrl}/cards/likes/${cardId}`, {
@@ -45,7 +57,16 @@ class Api {
         return customFetch(`${this._baseUrl}/cards/likes/${cardId}`, {
             headers: this._headers,
             method: "DELETE",
-        }).then(this._checkResponse)
+        });
+    }
+    setAvatarImage(url) {
+        return customFetch(`${this._baseUrl}/users/me/avatar`, {
+            headers: this._headers,
+            method: 'PATCH',
+            body: JSON.stringify({
+                avatar: url,
+            })
+        })
     }
 }
 

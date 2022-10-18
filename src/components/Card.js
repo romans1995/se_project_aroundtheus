@@ -53,7 +53,7 @@ class Card {
         this._elementImage.src = this._link;
 
         this._likeCount = this._element.querySelector(".element__likes-count");
-        this._likeCount.textContent = this._likes.length;
+        this._likeCount.textContent = this._likes ? this._likes.length : 0;
         if (this._ownerId._id !== this._userId) {
             this._deleteBtn.style.display = "none";
         }
