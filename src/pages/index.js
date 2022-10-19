@@ -20,7 +20,8 @@ import {
     logoImg,
     theprofileImg,
     validationSettings,
-    avatarImage
+    avatarImage,
+    avatarFormValidation
 } from '../utils/constants.js';
 import { api } from "../components/Api.js";
 import PopupWithSubmit from '../components/PopupWithSubmit.js';
@@ -53,13 +54,21 @@ const addFormValidator = new FormValidator(
     validationSettings,
     editPopupFormAddPlace,
 );
+const addFormValidatorAvtar = new FormValidator(
+    validationSettings,
+    avatarFormValidation,
+);
+
 
 
 // popup class based
 
 const popupEditProfile = new PopupWithForm(".profile-popup", (data) => {
+    popupEditProfile.loadingRender(true,"Saving...");
     userInfo.setUserInfo(data.name, data.job);
-    api.setUserInfo(data.name, data.job);
+    api.setUserInfo(data.name, data.job)
+    .catch((err) => console.log(err))
+    .finally(() => popupEditProfile.loadingRender(false));
 });
 popupEditProfile.setEventListeners();
 
@@ -79,26 +88,32 @@ const editProfile = () => {
 };
 
 const popupChangeAvatrImage = new PopupWithForm('.popup-editAvatar', (data) => {
+    popupChangeAvatrImage.loadingRender(true,"Saving...");
     api.setAvatarImage(data.link).then(res => {
         userInfo.setUserAvatar(res.avatar);
-    });
+    })
+    .finally(() => popupChangeAvatrImage.loadingRender(false));
 });
 
 const popupAddPlace = new PopupWithForm('.popup-addElement', (data) => {
+    popupAddPlace.loadingRender(true,"Saving...");
     api.createCard(data)
         .then(res => {
             const newElement = {
                 name: `${res.name}`,
                 link: `${res.link}`,
+                _id:`${res.owner._id}`,
             };
             section.addItem(createCard(newElement));
-        })
+        }) 
+        .finally(() => popupAddPlace.loadingRender(false));
 
 });
 popupAddPlace.setEventListeners();
 popupChangeAvatrImage.setEventListeners();
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
+addFormValidatorAvtar.enableValidation();
 //elements functions
 // @func
 

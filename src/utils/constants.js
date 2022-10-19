@@ -33,6 +33,7 @@
   const editPopupFormAddPlace = document.querySelector(
       '.popup__inputs-container-addPlace',
   );
+  const avatarFormValidation = document.querySelector('.popup__inputs-edit-avatar');
 
   const editModeName = document.querySelector('.profile__edit');
   const addPlaceBtn = document.querySelector('.profile__add');
@@ -72,5 +73,6 @@
       logoImg,
       theprofileImg,
       validationSettings,
-      avatarImage
+      avatarImage,
+      avatarFormValidation
   }

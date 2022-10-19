@@ -3,14 +3,15 @@ class Card {
         this._element = data;
         this._name = data.name;
         this._link = data.link;
-        this._likes = data.likes;
+        this._likes = data.likes?data.likes:[];
         this._cardSelector = cardSelector;
         this._handleClickCard = handleClickCard;
         this._handleDeleteCard = handleDeleteCard;
         this._cardId = data._id;
         this._userId = userId;
-        this._ownerId = data.owner;
+        this._ownerId = data.owner?data.owner:data;
         this._handleLike = handleLike;
+       
 
 
     }
@@ -57,7 +58,6 @@ class Card {
         if (this._ownerId._id !== this._userId) {
             this._deleteBtn.style.display = "none";
         }
-
         if (this.isLiked()) {
             this.likeCards(this._likes);
         }
