@@ -24,7 +24,7 @@ import {
     avatarFormValidation
 } from '../utils/constants.js';
 import { api } from "../components/Api.js";
-import PopupWithSubmit from '../components/PopupWithSubmit.js';
+import {PopupWithSubmit} from '../components/PopupWithSubmit.js';
 
 
 let userId;
@@ -98,13 +98,8 @@ const popupChangeAvatrImage = new PopupWithForm('.popup-editAvatar', (data) => {
 const popupAddPlace = new PopupWithForm('.popup-addElement', (data) => {
     popupAddPlace.loadingRender(true,"Saving...");
     api.createCard(data)
-        .then(res => {
-            const newElement = {
-                name: `${res.name}`,
-                link: `${res.link}`,
-                _id:`${res.owner._id}`,
-            };
-            section.addItem(createCard(newElement));
+        .then(data => {
+            section.addItem(createCard(data));
         }) 
         .finally(() => popupAddPlace.loadingRender(false));
 
@@ -132,6 +127,7 @@ const createCard = (element) => {
             } else {
                 api.likeCard(id)
                     .then(res => {
+                        console.log(res);
                         card.likeCards(res.likes)
                     })
             }
@@ -146,6 +142,7 @@ const createCard = (element) => {
                             confirmDelete.close();
                         })
                 })
+                
         }
     });
 
@@ -165,7 +162,6 @@ addPlaceBtn.addEventListener('click', openCardPopup);
 avatarImage.addEventListener('click', openImageAvatar);
 
 const section = new Section({
-        renderer: prependCard,
-    },
+        renderer: prependCard},
     elementList,
 );

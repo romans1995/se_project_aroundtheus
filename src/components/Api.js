@@ -1,7 +1,6 @@
 const customFetch = (url, heasders) =>
     fetch(url, heasders)
-    .then(res => res.ok ? res.json() : Promise.reject(res.statusText))
-    .catch(console.log);
+    .then(res => res.ok ? res.json() : Promise.reject(res.statusText));
 
 class Api {
     constructor({ baseUrl, headers }) {
@@ -42,7 +41,7 @@ class Api {
     }
 
     deleteCard(cardId) {
-        return customFetch(`${this._baseUrl}/cards/${cardId}`, {
+        return fetch(`${this._baseUrl}/cards/${cardId}`, {
             headers: this._headers,
             method: "DELETE",
         });

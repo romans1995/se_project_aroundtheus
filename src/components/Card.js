@@ -23,7 +23,7 @@ class Card {
     _seteventListeners() {
 
         this._elementImage.addEventListener("click", () => { this._handleClickCard(this._link, this._name) });
-        this._likeBtn.addEventListener("click", (evt) => { this._handleLike(this._cardId) });
+        this._likeBtn.addEventListener("click", () => { this._handleLike(this._cardId) });
         this._deleteBtn.addEventListener("click", () => { this._handleDeleteCard(this._cardId) });
     }
     likeCards(newLikes) {
