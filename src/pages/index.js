@@ -24,7 +24,7 @@ import {
     avatarFormValidation
 } from '../utils/constants.js';
 import { api } from "../components/Api.js";
-import {PopupWithSubmit} from '../components/PopupWithSubmit.js';
+import { PopupWithSubmit } from '../components/PopupWithSubmit.js';
 
 
 let userId;
@@ -34,10 +34,10 @@ Promise.all([api.getInitalCards(), api.getUserInformation()])
         section.renderItems(cardData);
         userInfo.setUserInfo(userInfoData.name, userInfoData.about);
         userInfo.setUserAvatar(userInfoData.avatar);
-    })
+    }).catch((err) => console.log(err));
+
 logoImg.src = logo;
 theprofileImg.src = profileImg;
-
 const userInfo = new UserInfo(".profile__description-name", ".profile__description-prof", ".profile__img");
 const openCardPopup = () => {
     popupAddPlace.open();
@@ -64,11 +64,13 @@ const addFormValidatorAvtar = new FormValidator(
 // popup class based
 
 const popupEditProfile = new PopupWithForm(".profile-popup", (data) => {
-    popupEditProfile.loadingRender(true,"Saving...");
-    userInfo.setUserInfo(data.name, data.job);
-    api.setUserInfo(data.name, data.job)
-    .catch((err) => console.log(err))
-    .finally(() => popupEditProfile.loadingRender(false));
+    popupEditProfile.loadingRender(true, "Saving...");
+    api.setUserInfo(data.name, data.job).then(() =>
+            userInfo.setUserInfo(data.name, data.job),
+            popupEditProfile.close()
+        )
+        .catch((err) => console.log(err))
+        .finally(() => popupEditProfile.loadingRender(false));
 });
 popupEditProfile.setEventListeners();
 
@@ -88,19 +90,22 @@ const editProfile = () => {
 };
 
 const popupChangeAvatrImage = new PopupWithForm('.popup-editAvatar', (data) => {
-    popupChangeAvatrImage.loadingRender(true,"Saving...");
+    popupChangeAvatrImage.loadingRender(true, "Saving...");
     api.setAvatarImage(data.link).then(res => {
-        userInfo.setUserAvatar(res.avatar);
-    })
-    .finally(() => popupChangeAvatrImage.loadingRender(false));
+            userInfo.setUserAvatar(res.avatar);
+            popupChangeAvatrImage.close();
+        })
+        .catch((err) => console.log(err))
+        .finally(() => popupChangeAvatrImage.loadingRender(false))
 });
 
 const popupAddPlace = new PopupWithForm('.popup-addElement', (data) => {
-    popupAddPlace.loadingRender(true,"Saving...");
+    popupAddPlace.loadingRender(true, "Saving...");
     api.createCard(data)
         .then(data => {
             section.addItem(createCard(data));
-        }) 
+            popupAddPlace.close();
+        })
         .finally(() => popupAddPlace.loadingRender(false));
 
 });
@@ -142,7 +147,7 @@ const createCard = (element) => {
                             confirmDelete.close();
                         })
                 })
-                
+
         }
     });
 
@@ -162,6 +167,7 @@ addPlaceBtn.addEventListener('click', openCardPopup);
 avatarImage.addEventListener('click', openImageAvatar);
 
 const section = new Section({
-        renderer: prependCard},
+        renderer: prependCard
+    },
     elementList,
 );

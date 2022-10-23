@@ -22,8 +22,8 @@ export class PopupWithForm extends Popup {
         super.close();
         this._form.reset();
     };
-    loadingRender(isLoading,textLoading = "saving..."){
-        isLoading?this._buttonSubmit.textContent = textLoading:this._buttonSubmit.textContent =this._buttonSubmitText;
+    loadingRender(isLoading, textLoading = "saving...") {
+        isLoading ? this._buttonSubmit.textContent = textLoading : this._buttonSubmit.textContent = this._buttonSubmitText;
     }
 
     setEventListeners() {
@@ -31,9 +31,8 @@ export class PopupWithForm extends Popup {
             e.preventDefault();
             const data = this._getInputValues();
             this.submitHandler(data); //this._getInputValues in
-            this.close();
-        });
 
+        });
         super.setEventListener();
 
     }

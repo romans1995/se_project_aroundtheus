@@ -1,22 +1,23 @@
-const customFetch = (url, heasders) =>
-    fetch(url, heasders)
-    .then(res => res.ok ? res.json() : Promise.reject(res.statusText));
-
 class Api {
     constructor({ baseUrl, headers }) {
         this._baseUrl = baseUrl;
         this._headers = headers;
+
+    }
+    _customFetch(url, heasders) {
+        return fetch(url, heasders).then(res => res.ok ? res.json() : Promise.reject(res.statusText));
+
     }
 
     getInitalCards() {
-        return customFetch(`${this._baseUrl}/cards`, {
+        return this._customFetch(`${this._baseUrl}/cards`, {
             headers: this._headers,
 
         })
 
     }
     setUserInfo(name, about) {
-        return fetch(`${this._baseUrl}/users/me`, {
+        return this._customFetch(`${this._baseUrl}/users/me`, {
             headers: this._headers,
             method: "PATCH",
             body: JSON.stringify({
@@ -27,13 +28,13 @@ class Api {
     }
 
     getUserInformation() {
-        return customFetch(`${this._baseUrl}/users/me`, {
+        return this._customFetch(`${this._baseUrl}/users/me`, {
             headers: this._headers,
 
         })
     }
     createCard(data) {
-        return customFetch(`${this._baseUrl}/cards`, {
+        return this._customFetch(`${this._baseUrl}/cards`, {
             headers: this._headers,
             method: 'POST',
             body: JSON.stringify(data)
@@ -47,19 +48,19 @@ class Api {
         });
     }
     likeCard(cardId) {
-        return customFetch(`${this._baseUrl}/cards/likes/${cardId}`, {
+        return this._customFetch(`${this._baseUrl}/cards/likes/${cardId}`, {
             headers: this._headers,
             method: "PUT",
         })
     }
     dislikeCard(cardId) {
-        return customFetch(`${this._baseUrl}/cards/likes/${cardId}`, {
+        return this._customFetch(`${this._baseUrl}/cards/likes/${cardId}`, {
             headers: this._headers,
             method: "DELETE",
         });
     }
     setAvatarImage(url) {
-        return customFetch(`${this._baseUrl}/users/me/avatar`, {
+        return this._customFetch(`${this._baseUrl}/users/me/avatar`, {
             headers: this._headers,
             method: 'PATCH',
             body: JSON.stringify({
