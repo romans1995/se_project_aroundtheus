@@ -11,7 +11,7 @@
  
  ## Git pages link
 
-- [Git pages link](https://romans1995.github.io/web_project_4/)
+- [Git pages link](https://romans1995.github.io/se_project_aroundtheus/)
 
 # description
 
