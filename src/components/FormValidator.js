@@ -33,7 +33,7 @@ class FormValidator {
     isFormValid() {
         return this._inputs.every((input) => input.validity.valid === true);
     }
-
+    
     toggleButton() {
         if (this.isFormValid()) {
             this._button.removeAttribute("disabled");

@@ -28,12 +28,9 @@ class Card {
     }
     likeCards(newLikes) {
         this._likes = newLikes;
-        this._element.querySelector('.element__like-button').classList.toggle("element__like-button_active");
-        this._element.querySelector(".element__likes-count").textContent = this._likes.length;
+        this._likeBtn.classList.toggle("element__like-button_active");
+        this._likeCount.textContent = this._likes.length;
     }
-
-
-
 
     handleElmentRemove() {
         this._element.remove();

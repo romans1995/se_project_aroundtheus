@@ -105,7 +105,7 @@ const popupAddPlace = new PopupWithForm('.popup-addElement', (data) => {
         .then(data => {
             section.addItem(createCard(data));
             popupAddPlace.close();
-        })
+        }).catch((err) => console.log(err)) 
         .finally(() => popupAddPlace.loadingRender(false));
 
 });
@@ -128,13 +128,12 @@ const createCard = (element) => {
             const isAlreayLiked = card.isLiked();
             if (isAlreayLiked) {
                 api.dislikeCard(id)
-                    .then(res => card.likeCards(res.likes))
+                    .then(res => card.likeCards(res.likes)).catch((err) => console.log(err));
             } else {
                 api.likeCard(id)
                     .then(res => {
-                        console.log(res);
                         card.likeCards(res.likes)
-                    })
+                    }).catch((err) => console.log(err));
             }
         },
         handleDeleteCard: (id) => {
@@ -145,7 +144,7 @@ const createCard = (element) => {
                         .then(res => {
                             card.handleElmentRemove();
                             confirmDelete.close();
-                        })
+                        }).catch((err) => console.log(err)) 
                 })
 
         }
