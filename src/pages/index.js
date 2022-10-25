@@ -46,7 +46,7 @@ const openCardPopup = () => {
 
 const openImageAvatar = () => {
     popupChangeAvatrImage.open();
-    addFormValidator.toggleButton();
+    avatarFormValidator.toggleButton();
 }
 
 const editFormValidator = new FormValidator(validationSettings, editPopupForm);
@@ -54,7 +54,7 @@ const addFormValidator = new FormValidator(
     validationSettings,
     editPopupFormAddPlace,
 );
-const addFormValidatorAvtar = new FormValidator(
+const avatarFormValidator = new FormValidator(
     validationSettings,
     avatarFormValidation,
 );
@@ -95,7 +95,7 @@ const popupChangeAvatrImage = new PopupWithForm('.popup-editAvatar', (data) => {
             userInfo.setUserAvatar(res.avatar);
             popupChangeAvatrImage.close();
         })
-        .catch((err) => console.log(err))
+        .catch(console.log) 
         .finally(() => popupChangeAvatrImage.loadingRender(false))
 });
 
@@ -105,7 +105,7 @@ const popupAddPlace = new PopupWithForm('.popup-addElement', (data) => {
         .then(data => {
             section.addItem(createCard(data));
             popupAddPlace.close();
-        }).catch((err) => console.log(err)) 
+        }).catch(console.log)
         .finally(() => popupAddPlace.loadingRender(false));
 
 });
@@ -113,7 +113,7 @@ popupAddPlace.setEventListeners();
 popupChangeAvatrImage.setEventListeners();
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
-addFormValidatorAvtar.enableValidation();
+avatarFormValidator.enableValidation();
 //elements functions
 // @func
 
@@ -128,12 +128,12 @@ const createCard = (element) => {
             const isAlreayLiked = card.isLiked();
             if (isAlreayLiked) {
                 api.dislikeCard(id)
-                    .then(res => card.likeCards(res.likes)).catch((err) => console.log(err));
+                    .then(res => card.likeCards(res.likes)).catch(console.log) ;
             } else {
                 api.likeCard(id)
                     .then(res => {
                         card.likeCards(res.likes)
-                    }).catch((err) => console.log(err));
+                    }).catch(console.log);
             }
         },
         handleDeleteCard: (id) => {
@@ -144,7 +144,7 @@ const createCard = (element) => {
                         .then(res => {
                             card.handleElmentRemove();
                             confirmDelete.close();
-                        }).catch((err) => console.log(err)) 
+                        }).catch(console.log);
                 })
 
         }
